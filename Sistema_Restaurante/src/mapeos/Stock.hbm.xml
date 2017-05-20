@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping >
+	<class name = "datos.Stock" table = "stock" >
+		<id column = "idStock" name = "idStock" >
+			<generator class = "identity" />
+		</id >
+		<property column = "maximo" name = "maximo" type = "float" />
+		<property column = "minimo" name = "minimo" type = "float" />
+		<property column = "existente" name = "existente" type = "float" />
+	</class >
+</hibernate-mapping >
