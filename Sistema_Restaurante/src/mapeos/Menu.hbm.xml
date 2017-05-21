@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping >
+	<class name = "datos.Menu" table = "menu" >
+		<id column = "idMenu" name = "idMenu" >
+			<generator class = "identity" />
+		</id >
+		<property column = "nombre" name = "nombre" type = "string" />
+		<many-to-one name = "listaPrecio" /> 
+		<!--	
+		<set name = "productosMenu" cascade="save-update" table = "productoMenu" inverse = "true" lazy = "true" fetch = "select" >
+			<key column = "producto" not-null = "true"/>
+			<one-to-many class = "datos.ProductoMenu" /> 
+		</set >	
+		-->		
+	</class >
+</hibernate-mapping >

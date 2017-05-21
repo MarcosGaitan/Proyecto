@@ -2,11 +2,11 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
-    <joined-subclass name="datos.Plato" table="plato" extends="datos.Producto">
-            <key column="idProducto" />
-            <set name = "platoIngredientes" cascade="all" table = "platoIngrediente" inverse = "true" lazy = "true" fetch = "select" >
-				<key column = "idProducto" not-null = "true"/>
-				<one-to-many class = "datos.PlatoIngrediente" /> 
-			</set >	
-    </joined-subclass>
+    <subclass name="datos.Plato" extends="datos.Producto" discriminator-value="D">
+	
+    	<set name = "platoIngredientes" cascade="all" table = "platoIngrediente" inverse = "true" lazy = "true" fetch = "select" >
+			<key column = "idProducto" not-null = "true"/>
+			<one-to-many class = "datos.PlatoIngrediente" /> 
+		</set >	
+    </subclass>
 </hibernate-mapping>

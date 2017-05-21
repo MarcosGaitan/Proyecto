@@ -1,6 +1,8 @@
 package datos;
 
-public class Ingrediente {
+import java.io.Serializable;
+
+public class Ingrediente implements Serializable {
 	private long idIngrediente;
 	private String nombre;
 	private Stock stock;

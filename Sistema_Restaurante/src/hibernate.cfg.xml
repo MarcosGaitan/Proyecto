@@ -19,7 +19,13 @@
 			<mapping resource = "mapeos/TipoCliente.hbm.xml" />
 			<mapping resource = "mapeos/TipoEmpleado.hbm.xml" />	
 			<mapping resource = "mapeos/Mesa.hbm.xml" />
-
-					
+			<mapping resource = "mapeos/ListaPrecio.hbm.xml" />
+			<mapping resource = "mapeos/ItemListaPrecio.hbm.xml" />
+			<mapping resource = "mapeos/Menu.hbm.xml" />
+			
+			<!-- 
+			<mapping resource = "mapeos/Plato.hbm.xml" />
+			<mapping resource = "mapeos/PlatoIngrediente.hbm.xml" />
+			 -->		
 	</session-factory >
 </hibernate-configuration >
