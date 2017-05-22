@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping >
+	<class name = "datos.Comanda" table = "comanda" >
+		<id column = "idComanda" name = "idComanda" >
+			<generator class = "identity" />
+		</id >
+		<many-to-one name = "cliente" class = "datos.Cliente"/>
+		<many-to-one name = "camarero" class = "datos.Empleado"/>
+		<property column = "confirmada" name = "confirmada" type = "boolean" />
+		<property column = "pagada" name = "pagada" type = "boolean" />
+		<property column = "anulada" name = "anulada" type = "boolean" />
+		<property column = "habitacion" name = "habitacion" type = "string" />
+		<property column = "fechaCreacion" name = "fechaCreacion" type = "calendar" />
+		<many-to-one name = "mesaFinal" class = "datos.MesaFinal"/>		
+		<set name = "comandaItems" cascade="save-update" table = "comandaItem" inverse = "true" lazy = "true" fetch = "select" >
+			<key column = "comanda" not-null = "true"/>
+			<one-to-many class = "datos.ComandaItem" /> 
+		</set >		
+	</class >
+</hibernate-mapping >
