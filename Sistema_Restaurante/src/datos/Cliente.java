@@ -9,9 +9,9 @@ public class Cliente extends Persona{
 	}
 	
 	
-	public Cliente(long idUsuario, String email, String nombre,
+	public Cliente( String email, String nombre,
 			String apellido, int dni,TipoCliente tipoCliente) {
-		super(idUsuario, email, nombre, apellido, dni);
+		super( email, nombre, apellido, dni);
 		// TODO Auto-generated constructor stub
 		this.tipoCliente=tipoCliente;
 	}

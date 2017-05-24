@@ -8,9 +8,8 @@ public class ProductoMenu {
 	
 	public ProductoMenu() {}
 
-	public ProductoMenu(long idProductoMenu, Menu menu, Producto producto, boolean habilitado) {
+	public ProductoMenu( Menu menu, Producto producto, boolean habilitado) {
 		super();
-		this.idProductoMenu=idProductoMenu;
 		this.menu = menu;
 		this.producto = producto;
 		this.habilitado = habilitado;
@@ -50,8 +49,11 @@ public class ProductoMenu {
 
 	@Override
 	public String toString() {
-		return "ProductoMenu [menu=" + menu + ", producto=" + producto + ", habilitado=" + habilitado + "]";
+		return "ProductoMenu [idProductoMenu=" + idProductoMenu + ", menu=" + menu + ", producto=" + producto
+				+ ", habilitado=" + habilitado + "]";
 	}
+
+	
 	
 	
 	

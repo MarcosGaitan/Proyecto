@@ -1,7 +1,8 @@
 package datos;
 
-public class PlatoIngrediente implements java.io.Serializable{
+public class PlatoIngrediente{
 	
+	private long idPlatoIngrediente;
 	private Plato plato;
 	private Ingrediente ingrediente;
 	private float cantidad;
@@ -17,6 +18,16 @@ public class PlatoIngrediente implements java.io.Serializable{
 		this.cantidad = cantidad;
 	}
 
+
+	
+	public long getIdPlatoIngrediente() {
+		return idPlatoIngrediente;
+	}
+
+
+	public void setIdPlatoIngrediente(long idPlatoIngrediente) {
+		this.idPlatoIngrediente = idPlatoIngrediente;
+	}
 
 
 	public Plato getPlato() {
@@ -51,8 +62,11 @@ public class PlatoIngrediente implements java.io.Serializable{
 
 	@Override
 	public String toString() {
-		return "PlatoIngrediente [plato=" + plato + ", ingrediente=" + ingrediente + ", cantidad=" + cantidad + "]";
+		return "PlatoIngrediente [idPlatoIngrediente=" + idPlatoIngrediente + ", plato=" + plato + ", ingrediente="
+				+ ingrediente + ", cantidad=" + cantidad + "]";
 	}
+
+
 	
 	
 }

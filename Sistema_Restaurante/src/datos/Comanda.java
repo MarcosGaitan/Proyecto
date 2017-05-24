@@ -6,17 +6,18 @@ import java.util.Set;
 public class Comanda {
 	
 	private int idComanda;
-	//private Cliente cliente;
-	//private Empleado camarero;
+	private Cliente cliente;
+	private Empleado camarero;
 	private boolean confirmada;
 	private boolean pagada;
 	private boolean anulada;
 	private String habitacion;
 	private GregorianCalendar fechaCreacion;
 	private Set<ComandaItem> comandaItems;
+	private MesaFinal mesafinal;
 	
 	public Comanda() {}
-	/*
+	
 	public Comanda(Empleado camarero, Set<ComandaItem> comandaItems) {
 		super();
 		this.camarero = camarero;
@@ -51,7 +52,6 @@ public class Comanda {
 		this.camarero = camarero;
 	}
 	
-	*/
 	public boolean isConfirmada() {
 		return confirmada;
 	}
@@ -100,12 +100,23 @@ public class Comanda {
 		this.comandaItems = comandaItems;
 	}
 
+	public MesaFinal getMesafinal() {
+		return mesafinal;
+	}
+
+	public void setMesafinal(MesaFinal mesafinal) {
+		this.mesafinal = mesafinal;
+	}
+
 	@Override
 	public String toString() {
-		return "Comanda [idComanda=" + idComanda + ", confirmada=" + confirmada + ", pagada=" + pagada + ", anulada="
-				+ anulada + ", habitacion=" + habitacion + ", fechaCreacion=" + fechaCreacion + ", comandaItems="
-				+ comandaItems + "]";
+		return "Comanda [idComanda=" + idComanda + ", cliente=" + cliente + ", camarero=" + camarero + ", confirmada="
+				+ confirmada + ", pagada=" + pagada + ", anulada=" + anulada + ", habitacion=" + habitacion
+				+ ", fechaCreacion=" + fechaCreacion + ", comandaItems=" + comandaItems + ", mesafinal=" + mesafinal
+				+ "]";
 	}
+
+	
 	
 	
 	

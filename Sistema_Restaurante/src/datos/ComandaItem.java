@@ -9,8 +9,8 @@ public class ComandaItem {
 	
 	public ComandaItem() {}
 
-	public ComandaItem(long idComandaItem, Producto producto, Comanda comanda, float precio, int cantidad) {
-		this.idComandaItem=idComandaItem;
+	public ComandaItem(Producto producto, Comanda comanda, float precio, int cantidad) {
+		
 		this.producto = producto;
 		this.comanda = comanda;
 		this.precio = precio;
@@ -61,9 +61,11 @@ public class ComandaItem {
 
 	@Override
 	public String toString() {
-		return "ComandaItem [producto=" + producto + ", comanda=" + comanda + ", precio=" + precio + ", cantidad="
-				+ cantidad + "]";
+		return "ComandaItem [idComandaItem=" + idComandaItem + ", producto=" + producto + ", comanda=" + comanda
+				+ ", precio=" + precio + ", cantidad=" + cantidad + "]";
 	}
+
+	
 	
 	
 	

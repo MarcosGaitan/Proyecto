@@ -2,6 +2,7 @@ package datos;
 
 public class PrecioTipoCliente {
 	
+	private long idPrecioTipoCliente;
 	private ItemListaPrecio itemListaPrecio;
 	private TipoCliente tipoCliente;
 	private float precio;
@@ -41,9 +42,11 @@ public class PrecioTipoCliente {
 
 	@Override
 	public String toString() {
-		return "PrecioTipoCliente [itemListaPrecio=" + itemListaPrecio + ", tipoCliente=" + tipoCliente + ", precio="
-				+ precio + "]";
+		return "PrecioTipoCliente [idPrecioTipoCliente=" + idPrecioTipoCliente + ", itemListaPrecio=" + itemListaPrecio
+				+ ", tipoCliente=" + tipoCliente + ", precio=" + precio + "]";
 	}
+
+	
 	
 	
 	

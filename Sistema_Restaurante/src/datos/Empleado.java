@@ -11,14 +11,14 @@ public class Empleado extends Persona{
 	public Empleado(){
 	}
 		
-	public Empleado(long idUsuario, String email, String nombre,
+	public Empleado( String email, String nombre,
 			String apellido, int dni, TipoEmpleado tipoEmpleado, String nombreUsuario,
-			String clave, boolean esActivo) {
-		super(idUsuario, email, nombre, apellido, dni);
+			String clave) {
+		super( email, nombre, apellido, dni);
 		this.tipoEmpleado=tipoEmpleado;
 		this.nombreUsuario=nombreUsuario;
 		this.clave=clave;
-		this.esActivo=esActivo;
+		this.esActivo= true;
 		// TODO Auto-generated constructor stub
 	}
 	

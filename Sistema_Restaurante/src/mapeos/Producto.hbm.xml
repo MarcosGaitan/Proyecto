@@ -13,7 +13,6 @@
 		<many-to-one name = "subrubro" />
 		<joined-subclass name="Plato" table="plato">
 	        <key column="idPlato"/>
-	        <property column="nombreUsuario" name="nombreUsuario" type="string"/>
 	        <set name = "platoIngredientes" cascade="save-update" table = "platoIngrediente" inverse = "true" lazy = "true" fetch = "select" >
 				<key column = "plato" not-null = "true"/>
 				<one-to-many class = "datos.PlatoIngrediente" /> 
