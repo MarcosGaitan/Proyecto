@@ -8,11 +8,9 @@
 		</id >
 		<property column = "validoDesde" name = "validoDesde" type = "calendar" />
 		<property column = "validoHasta" name = "validoHasta" type = "calendar" />
-		
 		<set name = "itemsListaPrecio" cascade="save-update" table = "itemListaPrecio" inverse = "true" lazy = "true" fetch = "select" >
 			<key column = "listaPrecio" not-null = "true"/>
 			<one-to-many class = "datos.ItemListaPrecio" /> 
-		</set >		
-		
+		</set >			
 	</class >
 </hibernate-mapping >

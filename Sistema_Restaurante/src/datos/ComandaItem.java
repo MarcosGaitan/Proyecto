@@ -1,7 +1,7 @@
 package datos;
 
 public class ComandaItem {
-	
+	private long idComandaItem;
 	private Producto producto;
 	private Comanda comanda;
 	private float precio;
@@ -9,11 +9,22 @@ public class ComandaItem {
 	
 	public ComandaItem() {}
 
-	public ComandaItem(Producto producto, Comanda comanda, float precio, int cantidad) {
+	public ComandaItem(long idComandaItem, Producto producto, Comanda comanda, float precio, int cantidad) {
+		this.idComandaItem=idComandaItem;
 		this.producto = producto;
 		this.comanda = comanda;
 		this.precio = precio;
 		this.cantidad = cantidad;
+	}
+	
+	
+	
+	public long getIdComandaItem() {
+		return idComandaItem;
+	}
+
+	public void setIdComandaItem(long idComandaItem) {
+		this.idComandaItem = idComandaItem;
 	}
 
 	public Producto getProducto() {

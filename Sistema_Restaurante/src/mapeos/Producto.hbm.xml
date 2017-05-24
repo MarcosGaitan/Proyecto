@@ -10,6 +10,19 @@
 		<property column = "descripcion" name = "descripcion" type = "string" />
 		<property column = "imagen" name = "imagen" type = "binary" />
 		<many-to-one name = "rubro" />	
-		<many-to-one name = "subrubro" />		
+		<many-to-one name = "subrubro" />
+		<joined-subclass name="Plato" table="plato">
+	        <key column="idPlato"/>
+	        <property column="nombreUsuario" name="nombreUsuario" type="string"/>
+	        <set name = "platoIngredientes" cascade="save-update" table = "platoIngrediente" inverse = "true" lazy = "true" fetch = "select" >
+				<key column = "plato" not-null = "true"/>
+				<one-to-many class = "datos.PlatoIngrediente" /> 
+			</set >
+	    </joined-subclass>
+	    <joined-subclass name="Bebida" table="bebida">
+	        <key column="idBebida"/>
+	        <property column = "litros" name = "litros" type = "float" />
+	        <many-to-one name = "stock" />
+	    </joined-subclass>		
 	</class >
 </hibernate-mapping >

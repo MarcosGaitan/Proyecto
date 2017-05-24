@@ -7,12 +7,10 @@
 			<generator class = "identity" />
 		</id >
 		<property column = "nombre" name = "nombre" type = "string" />
-		<many-to-one name = "listaPrecio" /> 
-		<!--	
+		<many-to-one name = "listaPrecio" /> 	
 		<set name = "productosMenu" cascade="save-update" table = "productoMenu" inverse = "true" lazy = "true" fetch = "select" >
 			<key column = "producto" not-null = "true"/>
 			<one-to-many class = "datos.ProductoMenu" /> 
-		</set >	
-		-->		
+		</set >		
 	</class >
 </hibernate-mapping >

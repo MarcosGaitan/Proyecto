@@ -1,18 +1,27 @@
 package datos;
 
 public class ProductoMenu {
-	
+	private long idProductoMenu;
 	private Menu menu;
 	private Producto producto;
 	private boolean habilitado;
 	
 	public ProductoMenu() {}
 
-	public ProductoMenu(Menu menu, Producto producto, boolean habilitado) {
+	public ProductoMenu(long idProductoMenu, Menu menu, Producto producto, boolean habilitado) {
 		super();
+		this.idProductoMenu=idProductoMenu;
 		this.menu = menu;
 		this.producto = producto;
 		this.habilitado = habilitado;
+	}
+	
+	public long getIdProductoMenu() {
+		return idProductoMenu;
+	}
+
+	public void setIdProductoMenu(long idProductoMenu) {
+		this.idProductoMenu = idProductoMenu;
 	}
 
 	public Menu getMenu() {

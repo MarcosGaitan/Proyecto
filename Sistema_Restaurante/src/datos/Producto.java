@@ -1,6 +1,5 @@
 package datos;
 
-import com.sun.prism.Image;
 
 public class Producto {
 	
