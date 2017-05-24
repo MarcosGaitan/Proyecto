@@ -23,7 +23,7 @@ public class TestTraerMesa {
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-		
+		/*
 		try 
 		{
 			
@@ -35,6 +35,9 @@ public class TestTraerMesa {
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
+		
+		*/
 	}
+	
 
 }

@@ -39,6 +39,7 @@ public class ProductoMenu {
 		this.producto = producto;
 	}
 
+
 	public boolean isHabilitado() {
 		return habilitado;
 	}

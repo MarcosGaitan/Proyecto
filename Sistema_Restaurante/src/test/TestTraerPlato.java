@@ -3,6 +3,7 @@ package test;
 import java.util.List;
 
 import datos.Plato;
+import datos.PlatoIngrediente;
 import datos.Producto;
 import negocio.PlatoABM;
 import negocio.ProductoABM;
@@ -25,7 +26,11 @@ public class TestTraerPlato {
 		try {
 			long idProducto= 1;
 			p = abm.traerPlato(idProducto);
-			System.out.println("\n " + p + "\n");
+			System.out.println("\n nombre Producto: " + p.getNombre() + "\n");
+			System.out.println("** ingredientes **");
+			for (PlatoIngrediente i : p.getPlatoIngredientes()){
+				System.out.println(i.getIngrediente().getNombre());
+			}
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}

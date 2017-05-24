@@ -15,6 +15,16 @@ public class PrecioTipoCliente {
 		this.tipoCliente = tipoCliente;
 		this.precio = precio;
 	}
+	
+	
+	
+	public long getIdPrecioTipoCliente() {
+		return idPrecioTipoCliente;
+	}
+
+	public void setIdPrecioTipoCliente(long idPrecioTipoCliente) {
+		this.idPrecioTipoCliente = idPrecioTipoCliente;
+	}
 
 	public ItemListaPrecio getItemListaPrecio() {
 		return itemListaPrecio;

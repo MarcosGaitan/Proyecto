@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import datos.ItemListaPrecio;
 import datos.ListaPrecio;
 import datos.Menu;
+import datos.ProductoMenu;
 
 public class MenuDao {
 	private static Session session ;
@@ -31,8 +32,13 @@ public class MenuDao {
 		try{
 			iniciaOperacion();
 			objeto = (Menu)session.get(Menu.class, idMenu);
-			Hibernate.initialize(objeto.getListaPrecio());
-			Hibernate.initialize(objeto.getListaPrecio().getItemsListaPrecio());
+			
+			Hibernate.initialize(objeto.getProductosMenu());
+			for (ProductoMenu pm : objeto.getProductosMenu()){
+				Hibernate.initialize(pm.getProducto());
+			}
+			
+			//Hibernate.initialize(objeto.getListaPrecio().getItemsListaPrecio());
 			
 			/*
 			for (ItemListaPrecio p : objeto.getListaPrecio().getItemsListaPrecio()){

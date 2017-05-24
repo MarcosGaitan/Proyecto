@@ -17,7 +17,7 @@ public class TestTraerProducto {
 		try {
 			long idProducto= 1;
 			p = abm.traerProducto(idProducto);
-			System.out.println("\n " + p + "\n");
+			System.out.println("\n nombreProducto: " + p.getNombre() + "\n");
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}

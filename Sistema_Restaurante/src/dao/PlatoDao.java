@@ -34,18 +34,14 @@ public class PlatoDao {
 			iniciaOperacion();
 			objeto = (Plato) session.get(Plato.class, idProducto);
 			
-			for (PlatoIngrediente p : objeto.getPlatoIngredientes()){
-				Hibernate.initialize(p.getPlato());
-				Hibernate.initialize(p.getIngrediente());
-			}
-			/*
 			Hibernate.initialize(objeto.getPlatoIngredientes());
+			
 			
 			for (PlatoIngrediente p : objeto.getPlatoIngredientes()){
 				Hibernate.initialize(p.getPlato());
 				Hibernate.initialize(p.getIngrediente());
 			}
-			*/
+			
 			
 		}finally {
 			session.close();

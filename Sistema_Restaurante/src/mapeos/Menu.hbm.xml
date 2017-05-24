@@ -9,7 +9,7 @@
 		<property column = "nombre" name = "nombre" type = "string" />
 		<many-to-one name = "listaPrecio" /> 	
 		<set name = "productosMenu" cascade="save-update" table = "productoMenu" inverse = "true" lazy = "true" fetch = "select" >
-			<key column = "producto" not-null = "true"/>
+			<key column = "menu" not-null = "true"/>
 			<one-to-many class = "datos.ProductoMenu" /> 
 		</set >		
 	</class >
