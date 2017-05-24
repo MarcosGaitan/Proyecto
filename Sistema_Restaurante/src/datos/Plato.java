@@ -1,9 +1,8 @@
 package datos;
 
-import java.io.Serializable;
 import java.util.Set;
 
-public class Plato extends Producto implements Serializable{
+public class Plato extends Producto{
 	
 	
 	Set<PlatoIngrediente> platoIngredientes;

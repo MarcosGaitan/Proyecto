@@ -8,11 +8,12 @@ import negocio.ProductoABM;
 public class TestTraerProducto {
 
 	public static void main(String[] args) {
-		
+
 		ProductoABM abm = new ProductoABM();
 		Producto p = null;
 		List<Producto> lista = null;
 
+		
 		try {
 			long idProducto= 1;
 			p = abm.traerProducto(idProducto);
@@ -21,7 +22,7 @@ public class TestTraerProducto {
 			System.out.println(e.getMessage());
 		}
 		
-		
+		/*
 		try 
 		{
 			lista = abm.traerProducto();
@@ -33,7 +34,7 @@ public class TestTraerProducto {
 		{
 			System.out.println(e1.getMessage());
 		}
-		
+		*/
 	}
 
 }

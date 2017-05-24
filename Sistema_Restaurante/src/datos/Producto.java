@@ -14,6 +14,7 @@ public class Producto {
 	public Producto() {}
 
 	public Producto(String nombre, String descripcion, Rubro rubro, Subrubro subrubro) {
+		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.rubro = rubro;

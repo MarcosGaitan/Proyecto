@@ -4,11 +4,10 @@
 <hibernate-mapping >
 	<class name = "datos.PlatoIngrediente" table = "platoIngrediente" >
 		<composite-id class = "PlatoIngrediente" mapped = "true">
-			<key-property name = "plato" type = "datos.Plato" column = "plato"/>
-			<key-many-to-one name = "plato" class = "datos.Plato" column = "plato"/>
-			<key-many-to-one name = "ingrediente" class = "datos.Ingrediente" column = "ingrediente"/>
+			<key-property name="plato" type="int" column="plato" /> 
+			<key-many-to-one name="plato" class="datos.Plato" column="idProducto"/>
+			<key-property name="ingrediente" type="int" column="ingrediente" />
 		</composite-id>
-		
 		<property column = "cantidad" name = "cantidad" type = "float" />
 	</class >		
 </hibernate-mapping >

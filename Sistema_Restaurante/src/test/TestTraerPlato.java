@@ -15,7 +15,7 @@ public class TestTraerPlato {
 		/**
 		 * No funciona aun... 
 		 * problemas con los mapeos culpa de la Herencia.. 
-		 * problemas de mapeo muchos a muchos con PlatoIngrediente
+		 * 
 		 */
 		PlatoABM abm = new PlatoABM();
 		Plato p = null;

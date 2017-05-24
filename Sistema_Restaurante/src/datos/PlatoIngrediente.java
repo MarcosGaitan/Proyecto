@@ -1,10 +1,7 @@
 package datos;
 
-import java.io.Serializable;
-
-public class PlatoIngrediente implements Serializable{
+public class PlatoIngrediente implements java.io.Serializable{
 	
-
 	private Plato plato;
 	private Ingrediente ingrediente;
 	private float cantidad;
