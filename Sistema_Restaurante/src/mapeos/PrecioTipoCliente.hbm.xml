@@ -6,6 +6,7 @@
 		<id column = "idPrecioTipoCliente" name = "idPrecioTipoCliente" >
 			<generator class = "identity" />
 		</id >
+		<property column = "precio" name = "precio" type = "float" />
 		<many-to-one name = "TipoCliente" />
 		<many-to-one name = "ItemListaPrecio" />			
 	</class >
