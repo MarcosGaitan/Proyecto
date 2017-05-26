@@ -4,23 +4,28 @@ import java.util.List;
 
 import datos.Comanda;
 import negocio.ComandaABM;
+import negocio.Funciones;
 public class TestTraerComanda {
 
 	public static void main(String[] args) throws Exception {
-		long id=1;  
+		
+		  
 		ComandaABM abm = new ComandaABM();
-		Comanda c = new Comanda();
-		System.out.println("1");
-		c=abm.traerComandaEItems(1);
-		System.out.println("2");
-		/*try {
-			
-			c=abm.traerComanda(id);
-			//System.out.println("ID: "+c.getIdComanda());
+		Comanda c = null;
+		
+		try{
+			long id=1;
+			c = abm.traerComanda(id);
+			System.out.println("idComanda: " + c.getIdComanda() + "   fecha Creacion: " + Funciones.traerFechaCorta(c.getFechaCreacion()));
+			System.out.println("idMesaFinal: " + c.getMesaFinal().getIdMesaFinal());
+			System.out.println("idCamarero: " + c.getCamarero().getIdPersona());
+		
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
+		
+		
 		/*
 		try 
 		{
@@ -35,7 +40,7 @@ public class TestTraerComanda {
 		{
 			System.out.println(e1.getMessage());
 		}
-*/
+		 */
 	}
 
 }

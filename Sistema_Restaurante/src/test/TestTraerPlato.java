@@ -11,13 +11,7 @@ import negocio.ProductoABM;
 public class TestTraerPlato {
 
 	public static void main(String[] args) {
-		
-		
-		/**
-		 * No funciona aun... 
-		 * problemas con los mapeos culpa de la Herencia.. 
-		 * 
-		 */
+
 		PlatoABM abm = new PlatoABM();
 		Plato p = null;
 		List<Plato> lista = null;

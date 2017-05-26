@@ -3,20 +3,21 @@
 <hibernate-mapping>
 <class name="datos.MesaFinal" table="mesaFinal">
 	<id column="idMesaFinal" name="idMesaFinal">
-	<generator class="identity"/>
+		<generator class="identity"/>
 	</id>
 	<property column="cantidadComensales" name="cantidadComensales" type="int"/>
-	<property column="isActiva" name="isActiva" type="boolean"/>
+	<property column="activa" name="activa" type="boolean"/>
 	<property column="nombre" name="nombre" type="string"/>
 	<property column="tiempoInicio" name="tiempoInicio" type="calendar"/>
 	<property column="tiempoFin" name="tiempoFin" type="calendar"/>
 	<set table="mesaArmada" name="mesas" outer-join="true">
-		<key column="idMesaFinal"/>
+		<key column="mesaFinal"/>
 		<many-to-many column="idMesa" class="datos.Mesa"/>
-	</set>
+	</set>	 
 	<set name = "comandas" cascade="save-update" table = "comanda" inverse = "true" lazy = "true" fetch = "select" >
 		<key column = "mesaFinal" not-null = "true"/>
 		<one-to-many class = "datos.Comanda" /> 
 	</set >
+	<one-to-one name = "ticket" class = "datos.Ticket"></one-to-one>
 </class>
 </hibernate-mapping>

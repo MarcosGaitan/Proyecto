@@ -7,14 +7,22 @@ public class MesaFinal {
 	
 	private long idMesaFinal;
 	private int cantidadComensales;
-	private boolean isActiva;
+	private boolean activa;
 	private String nombre;
 	private GregorianCalendar tiempoInicio;
 	private GregorianCalendar tiempoFin;
 	private Set<Mesa> mesas;
 	private Set<Comanda> comandas;
+	private Ticket ticket;
 	
 	public MesaFinal() {}
+	
+	public MesaFinal(int cantidadComensales, GregorianCalendar tiempoInicio, Set<Mesa> mesas) {
+		super();
+		this.cantidadComensales = cantidadComensales;
+		this.tiempoInicio = tiempoInicio;
+		this.mesas = mesas;
+	}
 
 	public long getIdMesaFinal() {
 		return idMesaFinal;
@@ -31,13 +39,14 @@ public class MesaFinal {
 	public void setCantidadComensales(int cantidadComensales) {
 		this.cantidadComensales = cantidadComensales;
 	}
+	
 
 	public boolean isActiva() {
-		return isActiva;
+		return activa;
 	}
 
-	public void setActiva(boolean isActiva) {
-		this.isActiva = isActiva;
+	public void setActiva(boolean activa) {
+		this.activa = activa;
 	}
 
 	public String getNombre() {
@@ -80,12 +89,17 @@ public class MesaFinal {
 		this.comandas = comandas;
 	}
 
-	@Override
-	public String toString() {
-		return "MesaFinal [idMesaFinal=" + idMesaFinal + ", cantidadComensales=" + cantidadComensales + ", isActiva="
-				+ isActiva + ", nombre=" + nombre + ", tiempoInicio=" + tiempoInicio + ", tiempoFin=" + tiempoFin
-				+ ", mesas=" + mesas + ", comandas=" + comandas + "]";
+	public Ticket getTicket() {
+		return ticket;
 	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
+	
+
+	
 	
 	
 	

@@ -38,7 +38,7 @@ public class ComandaDao {
 		return id;
 	}
 	
-	public Comanda traerComanda(long idComanda){
+	public Comanda traerComanda(long idComanda) throws HibernateException{
 		Comanda objeto = null;
 		try{
 			iniciaOperacion();

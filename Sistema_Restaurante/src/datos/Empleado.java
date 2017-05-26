@@ -8,8 +8,7 @@ public class Empleado extends Persona{
 	private boolean esActivo;
 	
 	//Constructor vacio En caso de necesitarse. 
-	public Empleado(){
-	}
+	public Empleado(){}
 		
 	public Empleado( String email, String nombre,
 			String apellido, int dni, TipoEmpleado tipoEmpleado, String nombreUsuario,
@@ -52,11 +51,6 @@ public class Empleado extends Persona{
 
 	public void setEsActivo(boolean esActivo) {
 		this.esActivo = esActivo;
-	}
-
-	@Override
-	public String toString() {
-		return "Tipo Empleado: "+this.tipoEmpleado.getDescripcion();
 	}
 
 	@Override
@@ -112,5 +106,11 @@ public class Empleado extends Persona{
 		this.dni=dni;
 	}
 
-
+	
+	@Override
+	public String toString() {
+		return "Tipo Empleado: "+this.tipoEmpleado.getDescripcion();
+	}
+	
+	
 }

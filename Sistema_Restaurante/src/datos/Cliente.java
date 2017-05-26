@@ -5,8 +5,7 @@ public class Cliente extends Persona{
 	private TipoCliente tipoCliente;
 		
 	//Constructor vacio En caso de necesitarse. 
-	public Cliente(){
-	}
+	public Cliente(){}
 	
 	
 	public Cliente( String email, String nombre,

@@ -70,8 +70,9 @@ public class EmpleadoDao {
 	public Empleado iniciarSesion( String usuario,String clave) throws HibernateException {
 		Empleado objeto = null ;
 		try {
-		iniciaOperacion();
-		objeto = (Empleado) session.createQuery( "from Empleado e where e.nombreUsuario='"+usuario+"'and e.clave='"+clave+"'").uniqueResult();
+			iniciaOperacion();
+			objeto = (Empleado) session.createQuery( "from Empleado e where e.nombreUsuario='"+usuario+"' and e.clave='"+clave+"'").uniqueResult();
+			Hibernate.initialize(objeto.getTipoEmpleado());
 		} finally {
 		session.close();
 		}

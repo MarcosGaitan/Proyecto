@@ -26,6 +26,9 @@
 			<mapping resource = "mapeos/ProductoMenu.hbm.xml" />
 			<mapping resource = "mapeos/PrecioTipoCliente.hbm.xml" />
 			<mapping resource = "mapeos/Persona.hbm.xml" />
-			
+			<mapping resource = "mapeos/Comanda.hbm.xml" />
+			<mapping resource = "mapeos/ComandaItem.hbm.xml" />
+			<mapping resource = "mapeos/MesaFinal.hbm.xml" />
+			<mapping resource = "mapeos/Ticket.hbm.xml" />
 	</session-factory >
 </hibernate-configuration >

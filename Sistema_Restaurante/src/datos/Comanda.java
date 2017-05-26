@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Comanda {
 	
-	private int idComanda;
+	private long idComanda;
 	private Cliente cliente;
 	private Empleado camarero;
 	private boolean confirmada;
@@ -31,14 +31,14 @@ public class Comanda {
 		this.mesaFinal=mesaFinal;
 	}
 
-	public int getIdComanda() {
+	public long getIdComanda() {
 		return idComanda;
 	}
 
-	public void setIdComanda(int idComanda) {
+	public void setIdComanda(long idComanda) {
 		this.idComanda = idComanda;
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -54,7 +54,7 @@ public class Comanda {
 	public void setCamarero(Empleado camarero) {
 		this.camarero = camarero;
 	}
-	
+
 	public boolean isConfirmada() {
 		return confirmada;
 	}
@@ -107,7 +107,7 @@ public class Comanda {
 		return mesaFinal;
 	}
 
-	public void setMesafinal(MesaFinal mesaFinal) {
+	public void setMesaFinal(MesaFinal mesaFinal) {
 		this.mesaFinal = mesaFinal;
 	}
 
@@ -115,9 +115,15 @@ public class Comanda {
 	public String toString() {
 		return "Comanda [idComanda=" + idComanda + ", cliente=" + cliente + ", camarero=" + camarero + ", confirmada="
 				+ confirmada + ", pagada=" + pagada + ", anulada=" + anulada + ", habitacion=" + habitacion
-				+ ", fechaCreacion=" + fechaCreacion + ", comandaItems=" + comandaItems + ", mesafinal=" + mesaFinal
+				+ ", fechaCreacion=" + fechaCreacion + ", comandaItems=" + comandaItems + ", mesaFinal=" + mesaFinal
 				+ "]";
 	}
+
+	
+
+	
+
+	
 
 	
 	

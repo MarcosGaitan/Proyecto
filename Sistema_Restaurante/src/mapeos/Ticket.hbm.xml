@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="datos.Ticket" table="ticket">
+	<id column="idTicket" name="idTicket">
+		<generator class="identity"/>
+	</id>
+	<property column="precioTotal" name="precioTotal" type="float"/>
+	<property column="confirmado" name="confirmado" type="boolean"/>
+	<property column="pagado" name="pagado" type="boolean"/>
+	<property column="fecha" name="fecha" type="calendar"/>
+	<property column="cortesia" name="cortesia" type="boolean"/>
+	<property column="formaDePago" name="formaDePago" type="string"/>
+	<many-to-one name = "autorizadoPor" />
+	<one-to-one name = "mesaFinal" class = "datos.MesaFinal"></one-to-one>
+</class>
+</hibernate-mapping>
