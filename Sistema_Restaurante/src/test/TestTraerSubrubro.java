@@ -2,21 +2,22 @@ package test;
 
 import java.util.List;
 
-import datos.Stock;
-import negocio.StockABM;
+import datos.Subrubro;
+import negocio.SubrubroABM;
 
-public class TestStock {
+public class TestTraerSubrubro {
 
 	public static void main(String[] args) {
 		
-		StockABM abm = new StockABM();
-		Stock  s = null;
-		List<Stock> lista = null;
+
+		SubrubroABM abm = new SubrubroABM();
+		Subrubro  sr = null;
+		List<Subrubro> lista = null;
 		
 		try {
 			long id = 1;
-			s = abm.traerStock(id);
-			System.out.println(s);
+			sr = abm.traerSubrubro(id);
+			System.out.println(sr);
 
 			
 		}
@@ -26,8 +27,8 @@ public class TestStock {
 		
 		try 
 		{
-			lista = abm.traerStock();
-			for (Stock k : lista)
+			lista = abm.traerSubrubro();
+			for (Subrubro k : lista)
 			{
 				System.out.println("\n "+ k);
 			}
@@ -35,7 +36,6 @@ public class TestStock {
 		{
 			System.out.println(e1.getMessage());
 		}
-
 
 	}
 

@@ -6,7 +6,7 @@ import java.util.List;
 import datos.TipoEmpleado;
 import negocio.TipoEmpleadoABM;
 
-public class TestTipoEmpleado {
+public class TestTraerTipoEmpleado {
 
 	public static void main(String[] args) {
 		

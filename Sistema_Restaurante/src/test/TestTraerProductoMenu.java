@@ -7,7 +7,7 @@ import datos.ProductoMenu;
 import negocio.MenuABM;
 import negocio.ProductoMenuABM;
 
-public class TestProductoMenu {
+public class TestTraerProductoMenu {
 
 	public static void main(String[] args) {
 		

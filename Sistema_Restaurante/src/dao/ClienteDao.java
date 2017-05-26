@@ -23,12 +23,12 @@ public class ClienteDao {
 		throw new HibernateException( "ERROR en la capa de acceso a datos" , he);
 	}
 	
-	public Cliente traerCliente(long idCliente) throws HibernateException{
+	public Cliente traerCliente(long idPersona) throws HibernateException{
 		Cliente objeto = null;
 		try
 		{
 			iniciaOperacion();
-			objeto = (Cliente)session.get(Cliente.class, idCliente);
+			objeto = (Cliente)session.get(Cliente.class, idPersona);
 		}
 		finally{
 			session.close();
@@ -36,6 +36,7 @@ public class ClienteDao {
 		return objeto;
 	}
 	
+		
 	@SuppressWarnings("unchecked")
 	public List<Cliente> traerCliente() throws HibernateException
 	{
@@ -43,7 +44,7 @@ public class ClienteDao {
 		try
 		{
 			iniciaOperacion();
-			String hql = "From Cliente c order by c.idCliente";
+			String hql = "From Cliente c order by c.idPersona";
 			lista = session.createQuery(hql).list();
 		}finally{
 			session.close();

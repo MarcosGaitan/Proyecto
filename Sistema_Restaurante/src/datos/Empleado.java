@@ -60,14 +60,14 @@ public class Empleado extends Persona{
 	}
 
 	@Override
-	public long getIdUsuario() {
-		return this.idUsuario;
+	public long getIdPersona() {
+		return this.idPersona;
 	}
 
 
 	@Override
-	public void setIdUsuario(long idUsuario) {
-		this.idUsuario=idUsuario;
+	public void setIdPersona(long idPersona) {
+		this.idPersona=idPersona;
 	}
 
 

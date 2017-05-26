@@ -5,7 +5,7 @@ import java.util.List;
 import datos.PlatoIngrediente;
 import negocio.PlatoIngredienteABM;
 
-public class TestPlatoIngrediente {
+public class TestTraerPlatoIngrediente {
 
 	public static void main(String[] args) {
 		

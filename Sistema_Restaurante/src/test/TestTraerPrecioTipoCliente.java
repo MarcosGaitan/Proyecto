@@ -7,7 +7,7 @@ import negocio.PrecioTipoClienteABM;
 
 
 
-public class TestPrecioTipoCliente {
+public class TestTraerPrecioTipoCliente {
 
 	public static void main(String[] args) {
 		

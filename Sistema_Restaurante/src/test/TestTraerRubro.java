@@ -2,21 +2,20 @@ package test;
 
 import java.util.List;
 
-import datos.Subrubro;
-import negocio.SubrubroABM;
+import datos.Rubro;
+import negocio.RubroABM;
 
-public class TestSubrubro {
+public class TestTraerRubro {
 
 	public static void main(String[] args) {
 		
-
-		SubrubroABM abm = new SubrubroABM();
-		Subrubro  sr = null;
-		List<Subrubro> lista = null;
+		RubroABM abm = new RubroABM();
+		Rubro  sr = null;
+		List<Rubro> lista = null;
 		
 		try {
 			long id = 1;
-			sr = abm.traerSubrubro(id);
+			sr = abm.traerRubro(id);
 			System.out.println(sr);
 
 			
@@ -27,8 +26,8 @@ public class TestSubrubro {
 		
 		try 
 		{
-			lista = abm.traerSubrubro();
-			for (Subrubro k : lista)
+			lista = abm.traerRubro();
+			for (Rubro k : lista)
 			{
 				System.out.println("\n "+ k);
 			}

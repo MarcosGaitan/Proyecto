@@ -13,6 +13,7 @@ public class ClienteABM {
 		
 		Cliente cliente = dao.traerCliente(idCliente);
 		if(cliente == null) throw new Exception ("no existe tal cliente");
+		TipoClienteABM abm = new TipoClienteABM();
 		return cliente;
 	}
 	
@@ -22,5 +23,6 @@ public class ClienteABM {
 		if (lista.isEmpty()) throw new Exception("Lista vacia, no hay datos");
 		return lista;
 	}
+
 	
 }

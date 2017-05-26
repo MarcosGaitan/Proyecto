@@ -43,7 +43,7 @@ public class BebidaDao {
 		try
 		{
 			iniciaOperacion();
-			String hql = "From Bebida m order by m.idBebida";
+			String hql = "From Bebida m order by m.idProducto";
 			lista = session.createQuery(hql).list();
 		}finally{
 			session.close();

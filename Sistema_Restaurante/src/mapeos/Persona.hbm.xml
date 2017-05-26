@@ -10,16 +10,16 @@
 		<property column="nombre" name="nombre" type="string"/>
 		<property column="apellido" name="apellido" type="string"/>
 		<property column="dni" name="dni" type = "int"/>
-		<joined-subclass name="Empleado" table="empleado">
+		<joined-subclass name="datos.Empleado" table="empleado" >
 	        <key column="idEmpleado"/>
 	        <property column="nombreUsuario" name="nombreUsuario" type="string"/>
 	        <property column="clave" name="clave" type="string"/>
 			<property column="esActivo" name="esActivo" type="boolean"/>
-	        <many-to-one name = "tipoEmpleado" />
+	        <many-to-one name = "tipoEmpleado"/>
 	    </joined-subclass>
-	    <joined-subclass name="Cliente" table="cliente">
+	    <joined-subclass name="datos.Cliente" table="cliente">
 	        <key column="idCliente"/>
-	        <many-to-one name = "tipoCliente" />
+	        <many-to-one name = "tipoCliente"/>
 	    </joined-subclass>
 	</class>
 </hibernate-mapping >

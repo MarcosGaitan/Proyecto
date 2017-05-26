@@ -14,18 +14,21 @@ public class Comanda {
 	private String habitacion;
 	private GregorianCalendar fechaCreacion;
 	private Set<ComandaItem> comandaItems;
-	private MesaFinal mesafinal;
+	private MesaFinal mesaFinal;
 	
 	public Comanda() {}
 	
-	public Comanda(Empleado camarero, Set<ComandaItem> comandaItems) {
+	public Comanda(Cliente cliente, Empleado camarero, Set<ComandaItem> comandaItems, String habitacion, MesaFinal mesaFinal) {
 		super();
+		this.cliente = cliente;
 		this.camarero = camarero;
 		this.comandaItems = comandaItems;
 		this.confirmada = false;
 		this.pagada = false;
 		this.anulada = false;
 		this.fechaCreacion = new GregorianCalendar();
+		this.habitacion=habitacion;
+		this.mesaFinal=mesaFinal;
 	}
 
 	public int getIdComanda() {
@@ -100,19 +103,19 @@ public class Comanda {
 		this.comandaItems = comandaItems;
 	}
 
-	public MesaFinal getMesafinal() {
-		return mesafinal;
+	public MesaFinal getMesaFinal() {
+		return mesaFinal;
 	}
 
-	public void setMesafinal(MesaFinal mesafinal) {
-		this.mesafinal = mesafinal;
+	public void setMesafinal(MesaFinal mesaFinal) {
+		this.mesaFinal = mesaFinal;
 	}
 
 	@Override
 	public String toString() {
 		return "Comanda [idComanda=" + idComanda + ", cliente=" + cliente + ", camarero=" + camarero + ", confirmada="
 				+ confirmada + ", pagada=" + pagada + ", anulada=" + anulada + ", habitacion=" + habitacion
-				+ ", fechaCreacion=" + fechaCreacion + ", comandaItems=" + comandaItems + ", mesafinal=" + mesafinal
+				+ ", fechaCreacion=" + fechaCreacion + ", comandaItems=" + comandaItems + ", mesafinal=" + mesaFinal
 				+ "]";
 	}
 

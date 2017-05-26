@@ -1,7 +1,7 @@
 package datos;
 
 public abstract class Persona {
-	protected long idUsuario;
+	protected long idPersona;
 	protected String email;
 	protected String nombre;
 	protected String apellido;
@@ -18,9 +18,9 @@ public abstract class Persona {
 		this.dni = dni;
 	}
 
-	protected abstract long getIdUsuario();
+	protected abstract long getIdPersona();
 
-	protected abstract void setIdUsuario(long idUsuario);
+	protected abstract void setIdPersona(long idPersona);
 
 	protected abstract String getEmail();
 

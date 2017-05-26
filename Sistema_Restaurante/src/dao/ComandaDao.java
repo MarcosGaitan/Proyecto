@@ -82,7 +82,7 @@ public class ComandaDao {
 		Comanda objeto = null;
 		try{
 			iniciaOperacion();
-			String hql = "from comanda c where c.idComanda =" + idComanda; 
+			String hql = "from Comanda c where c.idComanda =" + idComanda; 
 			objeto = (Comanda)session.createQuery(hql).uniqueResult();
 			Hibernate.initialize(objeto);
 		}finally{
