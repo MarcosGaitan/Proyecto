@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sistema_Restaurante</title>
+<title>Sistema Restaurante</title>
 </head>
 <body>
 <%@ include file = "/cabecera.jsp" %>
 <h2>Bienvenido al Restaurante</h2>
 <div>
-	<FORM method = "POST" action = "/IniciarSesion/Bienvenido " >
+	<FORM method = "POST" action = "/Sistema_Restaurant/Bienvenido" >
 	<TABLE>
 		<tr>
 			<td>Escribir Usuario:</td><td><INPUT name="usuario"></td>

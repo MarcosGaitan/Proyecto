@@ -5,7 +5,7 @@ pageEncoding = "ISO-8859-1" %>
 <TABLE border = "0" width = "100%" >
 <TR >
 <TD align = "left" >
-<IMG src = "/Sistema_Restaurante.v.4/images/LogoUnla.png" >
+<IMG src = "/Sistema_Restaurante/images/LogoUnla.png" >
 </TD >
 <TD align = "center" >
 <H1 > Orientación a Objetos II </H1 >

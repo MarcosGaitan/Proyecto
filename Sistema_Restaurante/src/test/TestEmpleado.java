@@ -12,8 +12,8 @@ public class TestEmpleado {
 		try{
 			EmpleadoABM u1=new EmpleadoABM();
 			
-			String usuario="empleadoA";
-			String clave="1234";
+			String usuario="admin";
+			String clave="admin";
 			//System.out.println( "\n---> Traer usuario idUsuario=" +dni+"\n\n" );
 		//	Empleado u=u1.traerUsuario(dni);
 		//	System.out.println(u+ "\nPertenece a " +u.getEmail()+u.getDni());

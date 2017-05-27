@@ -32,7 +32,7 @@ public class IniciarSesion extends HttpServlet {
 			Empleado empleado = empleadoAbm.iniciarSesion( usuario,clave );
 			
 			request .setAttribute( "empleado" , empleado );
-			request .getRequestDispatcher( "/bienvenido.jsp" ).forward( request ,response );
+			request .getRequestDispatcher( "/bienvenidos.html" ).forward( request ,response );
 			
 			}
 			catch (Exception e) {

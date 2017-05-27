@@ -71,7 +71,7 @@ public class EmpleadoDao {
 		Empleado objeto = null ;
 		try {
 			iniciaOperacion();
-			objeto = (Empleado) session.createQuery( "from Empleado e where e.nombreUsuario='"+usuario+"' and e.clave='"+clave+"'").uniqueResult();
+			objeto = (Empleado) session.createQuery( "from Empleado e where e.nombreUsuario='"+usuario+"' and e.clave='"+clave+"' and e.esActivo=1 ").uniqueResult();
 			Hibernate.initialize(objeto.getTipoEmpleado());
 		} finally {
 		session.close();
