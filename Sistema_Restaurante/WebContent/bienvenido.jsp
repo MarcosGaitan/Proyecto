@@ -9,10 +9,15 @@ pageEncoding = "ISO-8859-1" %>
 <title >Sistema Restaurante</title >
 </head >
 <BODY >
-<%@include file = "/cabecera.jsp" %>
-<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
-
-<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
+	<%@include file = "/cabecera.jsp" %>
+	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
+	<BR >
+		datos de la persona <BR>
+		Apellido: <%= empleado.getApellido() %> <BR >
+		Nombre: <%= empleado.getNombre() %> <BR>
+		DNI: <%= empleado.getDni() %> <BR>
+	<BR >
+	<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
 </BODY >
 </html >
 

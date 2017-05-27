@@ -34,7 +34,7 @@ public class IniciarSesion extends HttpServlet {
 				EmpleadoABM empleadoAbm= new EmpleadoABM ();
 				Empleado empleado = empleadoAbm.traerEmpleado(id);*/
 			request .setAttribute( "empleado" , empleado );
-			request .getRequestDispatcher( "/bienvenidos.html" ).forward( request ,response );
+			request .getRequestDispatcher( "/bienvenido.jsp" ).forward( request ,response );
 			
 			}
 			catch (Exception e) {

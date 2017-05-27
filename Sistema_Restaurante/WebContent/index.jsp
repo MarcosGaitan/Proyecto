@@ -7,22 +7,22 @@
 <title>Sistema Restaurante</title>
 </head>
 <body>
-<%@ include file = "/cabecera.jsp" %>
-<h2>Bienvenido al Restaurante</h2>
-<div>
-	<FORM method = "POST" action = "/Sistema_Restaurante/Bienvenido" >
-	<TABLE>
-		<tr>
-			<td>Escribir Usuario:</td><td><INPUT name="usuario"></td>
-		</tr>
-		<tr>
-			<td>Escribir Password:</td><td><INPUT name="pass" type="password"></td>
-		</tr>
-		
-		<tr><td></td><td><INPUT type = "submit" value = "Consultar" ></td></tr>
+	<%@ include file = "/cabecera.jsp" %>
+	<h2>Bienvenido al Restaurante</h2>
+	<div>
+		<FORM method = "POST" action = "/Sistema_Restaurante/Bienvenido" >
+		<TABLE>
+			<tr>
+				<td>Escribir Usuario:</td><td><INPUT name="usuario"></td>
+			</tr>
+			<tr>
+				<td>Escribir Password:</td><td><INPUT name="pass" type="password"></td>
+			</tr>
 			
-	</TABLE>	
-	</form>
-</div>
+			<tr><td></td><td><INPUT type = "submit" value = "Consultar" ></td></tr>
+				
+		</TABLE>	
+		</form>
+	</div>
 </body>
 </html>
