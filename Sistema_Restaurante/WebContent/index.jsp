@@ -10,7 +10,7 @@
 <%@ include file = "/cabecera.jsp" %>
 <h2>Bienvenido al Restaurante</h2>
 <div>
-	<FORM method = "POST" action = "/Sistema_Restaurant/Bienvenido" >
+	<FORM method = "POST" action = "/Sistema_Restaurante/Bienvenido" >
 	<TABLE>
 		<tr>
 			<td>Escribir Usuario:</td><td><INPUT name="usuario"></td>

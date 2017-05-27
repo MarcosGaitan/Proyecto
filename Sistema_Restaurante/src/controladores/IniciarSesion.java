@@ -25,12 +25,14 @@ public class IniciarSesion extends HttpServlet {
 			response ) throws ServletException, IOException {
 			response .setContentType( "text/html;charset=UTF-8" );
 			try {
-			
+		
 			String usuario=request . getParameter ( "usuario" );
 			String clave=request . getParameter ( "pass" );
 			EmpleadoABM empleadoAbm= new EmpleadoABM ();
 			Empleado empleado = empleadoAbm.iniciarSesion( usuario,clave );
-			
+				/*long id=Integer.parseInt (request.getParameter( "pass" ));	
+				EmpleadoABM empleadoAbm= new EmpleadoABM ();
+				Empleado empleado = empleadoAbm.traerEmpleado(id);*/
 			request .setAttribute( "empleado" , empleado );
 			request .getRequestDispatcher( "/bienvenidos.html" ).forward( request ,response );
 			
