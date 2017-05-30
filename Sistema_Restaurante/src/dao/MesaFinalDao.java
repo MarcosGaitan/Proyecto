@@ -7,6 +7,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import datos.Comanda;
+import datos.ComandaItem;
 import datos.MesaFinal;
 
 public class MesaFinalDao {
@@ -49,6 +51,29 @@ public class MesaFinalDao {
 			session.close();
 		}
 		return lista;
+	}
+	
+	public MesaFinal traerMesaFinalyComandas(long idMesaFinal) throws HibernateException{
+		MesaFinal objeto = null;
+		try
+		{
+			iniciaOperacion();
+			objeto = (MesaFinal)session.get(MesaFinal.class, idMesaFinal);
+			
+			Hibernate.initialize(objeto.getComandas());
+			for (Comanda c : objeto.getComandas())
+			{
+				Hibernate.initialize(c.getComandaItems());
+				for(ComandaItem ci : c.getComandaItems()){
+					Hibernate.initialize(ci.getProducto());
+				}
+			}
+			
+		}
+		finally{
+			session.close();
+		}
+		return objeto;
 	}
 	
 }

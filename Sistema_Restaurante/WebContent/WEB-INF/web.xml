@@ -10,7 +10,11 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>bienvenido.jsp</welcome-file>
     <welcome-file>bienvenidos.html</welcome-file> 
+    <welcome-file>controlGerente.jsp</welcome-file>
+    <welcome-file>verPreTicket.jsp</welcome-file>
+    <welcome-file>vistaPreTicket.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
 	  <servlet-name>IniciarSesion</servlet-name>
 	  <servlet-class > controladores.IniciarSesion </servlet-class >
@@ -18,5 +22,14 @@
   <servlet-mapping >
 	  <servlet-name > IniciarSesion</servlet-name >
 	  <url-pattern >/Bienvenido</url-pattern>
+  </servlet-mapping >
+  
+   <servlet>
+	  <servlet-name>vistaPreTicket</servlet-name>
+	  <servlet-class > controladores.ControladorEmitirPreticket </servlet-class >
+  </servlet >
+  <servlet-mapping >
+	  <servlet-name > vistaPreTicket</servlet-name >
+	  <url-pattern >/vistaPreTicket</url-pattern>
   </servlet-mapping >
 </web-app>

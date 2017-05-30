@@ -6,21 +6,33 @@ pageEncoding = "ISO-8859-1" %>
 <html >
 <head >
 <meta http-equiv = "Content-Type" content = "text/html; charset=ISO-8859-1" >
-<title >Sistema Restaurante</title >
+<title >Sistema Restaurante </title >
 </head >
 <BODY >
-
+	<h2>Bienvenido al Restaurante</h2>
 	<%@include file = "/cabecera.jsp" %>
-
+	
 	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
 	<BR >
-		datos de la persona <BR>
-		Apellido: <%= empleado.getApellido() %> <BR >
-		Nombre: <%= empleado.getNombre() %> <BR>
-		DNI: <%= empleado.getDni() %> <BR>
+		Bienvenido Gerente: 
+		<%= empleado.getApellido() %>
+		<%= empleado.getNombre() %> <BR>
 	<BR >
+	
+	
+	<div>
+		<FORM method = "POST" action = "/Sistema_Restaurante/vistaPreTicket" >
+		<BR>  Generar PreTicket <BR>
+		<TABLE>
+			<tr>
+				<td>Escribir id MesaFinal:</td><td><INPUT name="idMesaFinal"></td>
+			</tr>
+			<tr><td></td><td><INPUT type = "submit" value = "Consultar" ></td></tr>	
+		</TABLE>	
+		</form>
+	</div>
+	
 	<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
 	
 </BODY >
 </html >
-

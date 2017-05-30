@@ -22,5 +22,5 @@ public class ComandaItemABM {
 		if (lista.isEmpty()) throw new Exception("Lista vacia, no hay datos");
 		return lista;
 	}
-	
+
 }

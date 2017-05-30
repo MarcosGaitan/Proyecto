@@ -12,7 +12,7 @@
 	<property column="tiempoFin" name="tiempoFin" type="calendar"/>
 	<set table="mesaArmada" name="mesas" outer-join="true">
 		<key column="mesaFinal"/>
-		<many-to-many column="idMesa" class="datos.Mesa"/>
+		<many-to-many column="mesa" class="datos.Mesa"/>
 	</set>	 
 	<set name = "comandas" cascade="save-update" table = "comanda" inverse = "true" lazy = "true" fetch = "select" >
 		<key column = "mesaFinal" not-null = "true"/>

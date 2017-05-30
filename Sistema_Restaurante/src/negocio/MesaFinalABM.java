@@ -22,4 +22,11 @@ public class MesaFinalABM {
 		if(lista.isEmpty()) throw new Exception("La lista esta vacia");
 		return lista;
 	}
+	
+	public MesaFinal traerMesaFinalyComandas(long idMesaFinal) throws Exception
+	{
+		MesaFinal mesaFinal = dao.traerMesaFinalyComandas(idMesaFinal);
+		if (mesaFinal == null) throw new Exception("No existe tal mesa final");
+		return mesaFinal;
+	}
 }

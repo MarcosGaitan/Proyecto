@@ -1,6 +1,8 @@
 package datos;
 
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Set;
 
 public class Ticket {
 	
@@ -16,14 +18,15 @@ public class Ticket {
 	
 	public Ticket() {}
 
-	public Ticket(String formaDePago, MesaFinal mesaFinal) {
+	public Ticket (MesaFinal mesaFinal) {
 		super();
-		this.formaDePago = formaDePago;
+		this.precioTotal = calcularPrecioTotal(mesaFinal.getComandas());
 		this.mesaFinal = mesaFinal;
 		this.confirmado = false;
 		this.pagado = false;
 		this.cortesia = false;
 		this.autorizadoPor = null;
+		this.fecha = new GregorianCalendar();
 	}
 
 	public long getIdTicket() {
@@ -98,7 +101,15 @@ public class Ticket {
 		this.mesaFinal = mesaFinal;
 	}
 	
-	
-	
+	private float calcularPrecioTotal(Set<Comanda> comandas) {
+		float precioTotal = 0;
+		for (Comanda c : comandas){
+			for (ComandaItem ci : c.getComandaItems()){
+				precioTotal += ci.getPrecio();
+			}
+		}
+
+		return precioTotal;
+	}
 	
 }
