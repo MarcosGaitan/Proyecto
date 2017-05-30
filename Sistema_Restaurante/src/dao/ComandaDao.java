@@ -1,11 +1,17 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import datos.Cliente;
 import datos.Comanda;
+import datos.ComandaItem;
+import datos.Producto;
+
 
 public class ComandaDao {
 	
@@ -82,15 +88,33 @@ public class ComandaDao {
 		Comanda objeto = null;
 		try{
 			iniciaOperacion();
-			String hql = "from Comanda c where c.idComanda =" + idComanda; 
-			objeto = (Comanda)session.createQuery(hql).uniqueResult();
-			Hibernate.initialize(objeto);
+			objeto = (Comanda)session.get(Comanda.class, idComanda);
+			Hibernate.initialize(objeto.getComandaItems());
 		}finally{
 			session.close();
 		}
 		return objeto;
 	}
 	
-	
+	public List<Comanda> traerComandaEItems() throws HibernateException
+	{
+		List<Comanda> lista = null;
+		try
+		{
+			iniciaOperacion();
+			String hql = "From Comanda c";
+			lista = session.createQuery(hql).list();
+			Hibernate.initialize(lista);
+			for (Comanda c: lista){
+				Hibernate.initialize(c.getComandaItems());
+				for(ComandaItem ci : c.getComandaItems()){
+					Hibernate.initialize(ci.getProducto());
+				}
+			}
+		}finally{
+			session.close();
+		}
+		return lista;
+	}
 	
 }

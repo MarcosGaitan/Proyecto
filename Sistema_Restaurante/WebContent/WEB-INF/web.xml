@@ -32,4 +32,14 @@
 	  <servlet-name > vistaPreTicket</servlet-name >
 	  <url-pattern >/vistaPreTicket</url-pattern>
   </servlet-mapping >
+  
+  <servlet>
+	  <servlet-name>VerComanda</servlet-name>
+	  <servlet-class > controladores.ControladorVerComanda </servlet-class >
+  </servlet >
+  <servlet-mapping >
+	  <servlet-name >VerComanda</servlet-name >
+	  <url-pattern >/vistaComandas</url-pattern>
+  </servlet-mapping >
+  
 </web-app>
