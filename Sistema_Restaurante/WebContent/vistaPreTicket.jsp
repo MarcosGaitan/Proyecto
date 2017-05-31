@@ -33,13 +33,13 @@
 				<% for(ComandaItem ci : c.getComandaItems()) {%>
 					<tr>
 						<td > <%= ci.getProducto().getNombre() %></td>
-						<td > <%= ci.getPrecio()  %> </td >
+						<td >$ <%= ci.getPrecio()  %> </td >
 						<td > <%= ci.getCantidad() %> </td >
-						<td > <%= ci.getPrecio()* ci.getCantidad() %> </td >
+						<td >$ <%= ci.getPrecio()* ci.getCantidad() %> </td >
 					</tr>
 				<% } %>
 			<% } %>
-			 <tr><td> precio Total: </td> <td>  </td> <td> </td> <td> <%= ticket.getPrecioTotal() %> </td></tr>   
+			 <tr><td> precio Total: </td> <td>  </td> <td> </td> <td> $ <%= ticket.getPrecioTotal() %> </td></tr>   
 			</table >
 	<BR >
 </body>

@@ -11,7 +11,7 @@ pageEncoding = "ISO-8859-1" %>
 <BODY >
 	<h2>Bienvenido al Restaurante</h2>
 	<%@include file = "/cabecera.jsp" %>
-	
+	<%@include file = "/layoutMesas.jsp" %>
 	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
 	<BR >
 		Bienvenido Gerente: 
@@ -22,15 +22,18 @@ pageEncoding = "ISO-8859-1" %>
 	
 	<div>
 		<FORM method = "POST" action = "/Sistema_Restaurante/vistaPreTicket" >
-		<BR>  Generar PreTicket <BR>
+		<BR>  Generar PreTicket: <BR>
 		<TABLE>
 			<tr>
-				<td>Escribir id MesaFinal:</td><td><INPUT name="idMesaFinal"></td>
+				<td>Escribir id Mesa:</td><td><INPUT name="idMesa"></td>
+				<td></td><td><INPUT type = "submit" value = "Generar" ></td></tr>	
 			</tr>
-			<tr><td></td><td><INPUT type = "submit" value = "Consultar" ></td></tr>	
+			
 		</TABLE>	
 		</form>
 	</div>
+	
+	
 	
 	<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
 	

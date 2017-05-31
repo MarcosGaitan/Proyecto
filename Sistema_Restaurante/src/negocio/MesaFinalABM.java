@@ -29,4 +29,12 @@ public class MesaFinalABM {
 		if (mesaFinal == null) throw new Exception("No existe tal mesa final");
 		return mesaFinal;
 	}
+	
+	public MesaFinal traerMesaFinalDesdeIdMesa(long idMesa) throws Exception{
+		MesaFinal mesaFinal = dao.traerMesaFinalDesdeIdMesa(idMesa);
+		if (mesaFinal == null) throw new Exception("No existe mesafinal");
+		mesaFinal = dao.traerMesaFinalyComandas(mesaFinal.getIdMesaFinal());
+		return mesaFinal;
+	}
+
 }

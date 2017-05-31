@@ -17,12 +17,12 @@ public class TestTraerMesa {
 		{
 			long idMesa = 1;
 			mesa = abm.traerMesa(idMesa);
-			mesa.ocupar();
 			System.out.println("\n" + mesa + "\n");
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
+		
 		/*
 		try 
 		{
@@ -35,8 +35,8 @@ public class TestTraerMesa {
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-		
 		*/
+		
 	}
 	
 
