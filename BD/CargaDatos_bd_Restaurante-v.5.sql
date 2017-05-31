@@ -314,7 +314,12 @@ insert into ticket values( 1, 100.50, true, true, now(), true, 'de la Casa', 11,
 insert into comanda values(2, true, true, false, null, now(), 1, 2, 12);
 
 insert into comandaItem values(5, 1, 2, 30.0, 2);
-insert into comandaItem values(6, 2, 2, 14.0, 2);
-insert into comandaItem values(7, 3, 2, 75.0, 2);
+insert into comandaItem values(6, 2, 2, 14.0, 1);
+insert into comandaItem values(7, 3, 2, 75.0, 3);
+
+insert into comanda values(3, true, true, false, null, now(), 1, 2, 12);
+insert into comandaItem values(8, 1, 3, 30.0, 2);
+insert into comandaItem values(9, 2, 3, 28.0, 2);
+insert into comandaItem values(10, 3, 3, 50, 2);
 
 

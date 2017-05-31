@@ -23,10 +23,10 @@ pageEncoding = "ISO-8859-1" %>
 	
 	<div>
 		<FORM method = "POST" action = "/Sistema_Restaurante/vistaComandas">		
-					<INPUT type = "submit" value = "Ver Comandas" >
+					<INPUT type = "submit" value = "Ver Comandas">
 		</FORM >
 		<FORM method = "POST" >		
-					<INPUT type = "submit" value = "Agregar Comanda"  >
+					<INPUT type = "submit" value = "Agregar Comanda">
 		</FORM >
 		<FORM method = "POST" action = "/Sistema_Restaurante/anularComanda">
 					<INPUT type = "submit" value = "Anular Comanda" >

@@ -13,7 +13,7 @@ pageEncoding="ISO-8859-1"%>
 	<%@include file = "/cabecera.jsp" %>
 </head>
 <body>
-	<% List <Comanda> comandas = (List)request.getAttribute("comandas"); %>
+	<% List <Comanda> comandas = (List <Comanda>)request.getAttribute("comandas"); %>
 	<BR>
 	<BR>
 	<BR>Vista Comandas<BR>
@@ -25,6 +25,7 @@ pageEncoding="ISO-8859-1"%>
 				<th > ITEMS </th >
 			</tr >		
 			<% for(Comanda c : comandas) {%>
+				<% if (c.isAnulada()==false){ %>
 					<tr>
 						<td align="center"> <%= c.getIdComanda() %></td>
 						<td align="center"> <%= Funciones.traerFechaCorta(c.getFechaCreacion()) %> </td >
@@ -33,7 +34,6 @@ pageEncoding="ISO-8859-1"%>
 							<tr >
 								<th > Producto </th>
 								<th > Cantidad </th >
-								
 							</tr >	
 							<% for(ComandaItem ci : c.getComandaItems()) {%>
 								<tr >
@@ -44,6 +44,7 @@ pageEncoding="ISO-8859-1"%>
 						<% } %></table></td >
 						
 					</tr>
+					<%} %>
 				<% } %>
 			</table >
 	<BR >
