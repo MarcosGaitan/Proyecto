@@ -13,6 +13,7 @@
     <welcome-file>controlGerente.jsp</welcome-file>
     <welcome-file>verPreTicket.jsp</welcome-file>
     <welcome-file>vistaPreTicket.jsp</welcome-file>
+    <welcome-file>vistaComandas.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>IniciarSesion</servlet-name>
@@ -24,7 +25,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>vistaPreTicket</servlet-name>
-    <servlet-class> controladores.ControladorEmitirPreticket </servlet-class>
+    <servlet-class>controladores.ControladorEmitirPreticket </servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>vistaPreTicket</servlet-name>
@@ -40,5 +41,13 @@
     <url-pattern>/layoutMesas</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+ 	  <servlet-name>VerComanda</servlet-name>
+ 	  <servlet-class > controladores.ControladorVerComanda </servlet-class >
+   </servlet >
+   <servlet-mapping >
+ 	  <servlet-name >VerComanda</servlet-name >
+ 	  <url-pattern >/vistaComandas</url-pattern>
+   </servlet-mapping >
   
 </web-app>

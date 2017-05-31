@@ -1,17 +1,17 @@
 
-/* MESAS*/
-	insert into mesa values (1, 2, 1);
-    insert into mesa values (2, 2, 2);
-    insert into mesa values (3, 2, 3);
-    insert into mesa values (4, 2, 4);
-    insert into mesa values (5, 2, 5);
-    insert into mesa values (6, 2, 6);
-    insert into mesa values (7, 2, 7);
-    insert into mesa values (8, 2, 8);
-    insert into mesa values (9, 2, 9);
-    insert into mesa values (10, 2, 10);
-    insert into mesa values (11, 2, 11);
-    insert into mesa values (12, 2, 12);
+/* MESAS*//* MESAS*/
+	insert into mesa values (1, 2, 1, 'libre');
+    insert into mesa values (2, 2, 2, 'libre');
+    insert into mesa values (3, 2, 3, 'libre');
+    insert into mesa values (4, 2, 4, 'libre');
+    insert into mesa values (5, 2, 5, 'libre');
+    insert into mesa values (6, 2, 6, 'libre');
+    insert into mesa values (7, 2, 7, 'libre');
+    insert into mesa values (8, 2, 8, 'libre');
+    insert into mesa values (9, 2, 9, 'libre');
+    insert into mesa values (10, 2, 10, 'libre');
+    insert into mesa values (11, 2, 11, 'libre');
+    insert into mesa values (12, 2, 12, 'libre');
   
   
 /* TIPOCLIENTE*/
