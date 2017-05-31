@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 
 import datos.Comanda;
 import datos.ComandaItem;
+import datos.Mesa;
 import datos.MesaFinal;
 
 public class MesaFinalDao {
@@ -71,6 +72,32 @@ public class MesaFinalDao {
 			
 		}
 		finally{
+			session.close();
+		}
+		return objeto;
+	}
+	
+	public MesaFinal traerMesaFinalDesdeIdMesa(long idMesa) throws HibernateException{
+
+		List<MesaFinal> lista ;
+		MesaFinal objeto = null;
+		try
+		{
+			iniciaOperacion();
+			String hql = "from MesaFinal mf where mf.activa = 0";
+			lista = session.createQuery(hql).list();
+			boolean encontrado = false;
+			for (int i= 0; i<lista.size() && !encontrado;i++){
+				
+				for (Mesa m : lista.get(i).getMesas()){
+					if(m.getIdMesa() == idMesa){
+						objeto = lista.get(i);
+						encontrado=true;
+					}
+				}
+			}
+
+		}finally{
 			session.close();
 		}
 		return objeto;

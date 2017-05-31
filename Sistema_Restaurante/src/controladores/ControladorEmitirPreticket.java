@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.hibernate.HibernateException;
 
-import datos.Empleado;
 import datos.MesaFinal;
 import datos.Ticket;
-import negocio.EmpleadoABM;
 import negocio.MesaFinalABM;
 import negocio.TicketABM;
 
@@ -31,13 +29,14 @@ public class ControladorEmitirPreticket  extends HttpServlet {
 			response .setContentType( "text/html;charset=UTF-8" );
 			try {
 		
-			String idMesaFinal = request.getParameter ( "idMesaFinal" );
-			long id = Long.parseLong(idMesaFinal);
+			String idMesa = request.getParameter ( "idMesa" );
+			long id = Long.parseLong(idMesa);
 			
 			MesaFinalABM mesaFinalABM= new MesaFinalABM ();
 			TicketABM ticketABM = new TicketABM();
+		
 			
-			MesaFinal mesaFinal = mesaFinalABM.traerMesaFinalyComandas(id);
+			MesaFinal mesaFinal = mesaFinalABM.traerMesaFinalDesdeIdMesa(id);
 			Ticket ticket = ticketABM.GenerarPreticket(mesaFinal);
 			
 			
