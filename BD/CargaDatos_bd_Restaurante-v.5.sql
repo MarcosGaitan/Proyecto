@@ -308,3 +308,13 @@ insert into comandaItem values(4, 4, 1, 34.0, 1);
 
 
 insert into ticket values( 1, 100.50, true, true, now(), true, 'de la Casa', 11, 1);
+
+
+/******* Nuevas Comandas De Prueba *******/
+insert into comanda values(2, true, true, false, null, now(), 1, 2, 12);
+
+insert into comandaItem values(5, 1, 2, 30.0, 2);
+insert into comandaItem values(6, 2, 2, 14.0, 2);
+insert into comandaItem values(7, 3, 2, 75.0, 2);
+
+

@@ -34,15 +34,18 @@ public class IniciarSesion extends HttpServlet {
 				EmpleadoABM empleadoAbm= new EmpleadoABM ();
 				Empleado empleado = empleadoAbm.traerEmpleado(id);*/
 			request .setAttribute( "empleado" , empleado );
-			if (empleado.getTipoEmpleado().getDescripcion().startsWith("Gerente")){
-				request .getRequestDispatcher( "/controlGerente.jsp" ).forward( request ,response );
-			}else{
-				request .getRequestDispatcher( "/bienvenido.jsp" ).forward( request ,response );
-			}
+			
+				if (empleado.getTipoEmpleado().getDescripcion().startsWith("Gerente")){
+					request .getRequestDispatcher( "/controlGerente.jsp" ).forward( request ,response );
+					}
+				if (empleado.getTipoEmpleado().getDescripcion().startsWith("Camarero")){
+					request.getRequestDispatcher("/controlCamarero.jsp").forward(request, response);
+					}
+			
 			}
 			catch (Exception e) {
 				response.sendError(500, "ERROR el usuario con ese email o clave no existe ERROR." );
-						}
+				}
 			}
 }
 			
