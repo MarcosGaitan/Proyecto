@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import datos.Mesa;
+import datos.MesaFinal;
 
 public class MesaDao {
 	private static Session session ;
@@ -21,6 +22,20 @@ public class MesaDao {
 	private void manejaExcepcion(HibernateException he) throws HibernateException {
 		tx .rollback();
 		throw new HibernateException( "ERROR en la capa de acceso a datos" , he);
+	}
+	
+	public void actualizar(Mesa objeto) {
+		
+		try {
+			iniciaOperacion();
+			session.update(objeto);
+			tx .commit();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			session .close();
+		}
 	}
 	
 	public Mesa traerMesa(long idMesa) throws HibernateException{

@@ -9,6 +9,15 @@ public class MesaFinalABM {
 	
 	MesaFinalDao dao = new MesaFinalDao();
 	
+	public long agregarMesaFinal(MesaFinal mesaFinal)
+	{
+		long id=0;
+		id= dao.agregar(mesaFinal);
+		
+		return id;
+	}
+	
+	
 	public MesaFinal traerMesaFinal(long idMesaFinal) throws Exception
 	{
 		MesaFinal mesaFinal = dao.traerMesaFinal(idMesaFinal);
@@ -32,9 +41,7 @@ public class MesaFinalABM {
 	
 	public MesaFinal traerMesaFinalDesdeIdMesa(long idMesa) throws Exception{
 		MesaFinal mesaFinal = dao.traerMesaFinalDesdeIdMesa(idMesa);
-		if (mesaFinal == null) throw new Exception("No existe mesafinal");
-		mesaFinal = dao.traerMesaFinalyComandas(mesaFinal.getIdMesaFinal());
+		//if (mesaFinal == null) throw new Exception("No existe mesafinal");
 		return mesaFinal;
 	}
-
 }

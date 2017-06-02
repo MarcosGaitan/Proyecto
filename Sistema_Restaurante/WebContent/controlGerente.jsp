@@ -25,10 +25,9 @@ pageEncoding = "ISO-8859-1" %>
 		<BR>  Generar PreTicket: <BR>
 		<TABLE>
 			<tr>
-				<td>Escribir id Mesa:</td><td><INPUT name="idMesa"></td>
+				<td>Escribir id Mesa:</td><td><INPUT name="idMesa"  maxlength="10" size="10"></td>
 				<td></td><td><INPUT type = "submit" value = "Generar" ></td></tr>	
 			</tr>
-			
 		</TABLE>	
 		</form>
 	</div>

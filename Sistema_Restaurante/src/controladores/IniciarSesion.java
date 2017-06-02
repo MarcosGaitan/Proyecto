@@ -38,8 +38,11 @@ public class IniciarSesion extends HttpServlet {
 				if (empleado.getTipoEmpleado().getDescripcion().startsWith("Gerente")){
 					request .getRequestDispatcher( "/controlGerente.jsp" ).forward( request ,response );
 					}
-				if (empleado.getTipoEmpleado().getDescripcion().startsWith("Camarero")){
+				else if (empleado.getTipoEmpleado().getDescripcion().startsWith("Camarero")){
 					request.getRequestDispatcher("/controlCamarero.jsp").forward(request, response);
+					}
+				else if (empleado.getTipoEmpleado().getIdTipoEmpleado() == 4){
+					request.getRequestDispatcher("/controlJefeSalon.jsp").forward(request, response);
 					}
 			
 			}

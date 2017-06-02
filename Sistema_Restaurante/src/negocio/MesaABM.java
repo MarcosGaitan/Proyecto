@@ -44,4 +44,11 @@ public class MesaABM {
 		
 		return lista;
 	}
+	
+	public void actualizarMesa(Mesa mesa)
+	{
+		
+		dao.actualizar(mesa);
+	}
+	
 }

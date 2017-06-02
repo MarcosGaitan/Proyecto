@@ -29,16 +29,20 @@ public class Mesa {
 	public void dejarLibre()
 	{
 		this.setEstadoMesa(this.getEstadoMesa().dejarLibre());
+		this.estado = "libre";
 	}
 	
 	public void ocupar()
 	{
 		this.setEstadoMesa(this.getEstadoMesa().ocupar());
+			
+		this.estado = "ocupada";
 	}
 	
 	public void terminar()
 	{
 		this.setEstadoMesa(this.getEstadoMesa().terminar());
+		this.estado = "terminada";
 	}
 	/* Getters and Setters*/
 	public long getIdMesa() {
@@ -87,5 +91,7 @@ public class Mesa {
 				+ ", estadoMesa=" + estadoMesa.toString() + ", estado=" + estado  ;
 	}
 		
+
+	
 	
 }

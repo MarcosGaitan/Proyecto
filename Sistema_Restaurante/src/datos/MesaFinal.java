@@ -1,6 +1,7 @@
 package datos;
 
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.Set;
 
 public class MesaFinal {
@@ -11,17 +12,20 @@ public class MesaFinal {
 	private String nombre;
 	private GregorianCalendar tiempoInicio;
 	private GregorianCalendar tiempoFin;
-	private Set<Mesa> mesas;
+	private Set<Mesa> mesas ;
 	private Set<Comanda> comandas;
 	private Ticket ticket;
 	
 	public MesaFinal() {}
 	
-	public MesaFinal(int cantidadComensales, GregorianCalendar tiempoInicio, Set<Mesa> mesas) {
+	public MesaFinal(boolean activa) {
 		super();
-		this.cantidadComensales = cantidadComensales;
-		this.tiempoInicio = tiempoInicio;
-		this.mesas = mesas;
+		this.cantidadComensales = 0;
+		this.tiempoInicio = new GregorianCalendar();
+		this.activa = true;
+		this.ticket = null;
+		this.mesas =  new HashSet<Mesa>();
+
 	}
 
 	public long getIdMesaFinal() {
@@ -98,7 +102,12 @@ public class MesaFinal {
 	}
 
 	
-
+	public void agregarMesa(Mesa mesa)
+	{
+		System.out.println("agrego la mesa");
+		this.getMesas().add(mesa);
+		System.out.println("agregue la mesa");
+	}
 	
 	
 	

@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import datos.Mesa;
 import negocio.MesaABM;
 
-/**
- * Servlet implementation class ControladorTraerMesas
- */
+
 @WebServlet("/ControladorTraerMesas")
 public class ControladorTraerMesas extends HttpServlet {
 	
