@@ -3,6 +3,7 @@ package negocio;
 import java.util.List;
 
 import dao.MesaFinalDao;
+import datos.Mesa;
 import datos.MesaFinal;
 
 public class MesaFinalABM {
@@ -46,7 +47,11 @@ public class MesaFinalABM {
 	public MesaFinal traerMesaFinalDesdeIdMesa(long idMesa) throws Exception{
 	
 		MesaFinal mesaFinal = dao.traerMesaFinalDesdeIdMesa(idMesa);
-		//if (mesaFinal == null) throw new Exception("No existe mesafinal");
+		if (mesaFinal != null) {
+			for(Mesa m : mesaFinal.getMesas()){
+				m.inicializarMesa();
+			}
+		}
 		return mesaFinal;
 	}
 	
@@ -64,4 +69,5 @@ public class MesaFinalABM {
 		mesaFinal.liberarMesas();
 		dao.actualizar(mesaFinal);
 	}
+	
 }

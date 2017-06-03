@@ -24,27 +24,28 @@ public class TestMesaFinal {
 		// traer mesa final desde Id con comandas y todo
 		try 
 		{
-			long idMesa = 2;
+			long idMesa = 1;
 			mesaFinal = abm.traerMesaFinalDesdeIdMesa(idMesa);
 			
+			/*
 			Mesa mesa1 = mesaABM.traerMesa(idMesa1);
 			Mesa mesa2 = mesaABM.traerMesa(idMesa2);
 			mesaFinal.agregarMesa(mesa1);
 			mesaFinal.agregarMesa(mesa2);
-			
+			*/
 			System.out.println("\n idMesaFinal:" + mesaFinal.getIdMesaFinal() + "\n");
 			for(Mesa m : mesaFinal.getMesas()){
-				System.out.println("\n mesa id: :" + m.getIdMesa() + "\n");
+				System.out.println("\n mesa id: :" + m+ "\n");
 			}
-			System.out.println("\n mesa1:" + mesaFinal.getIdMesaFinal() + "\n");
 			
+			/*
 			mesaFinal = abm.traerMesaFinalyComandas(mesaFinal.getIdMesaFinal());
 			for (Comanda c : mesaFinal.getComandas()){
 				for (ComandaItem ci : c.getComandaItems()){
 					System.out.println("producto: " + ci.getProducto().getNombre());
 				}
 			}
-			
+			*/
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());

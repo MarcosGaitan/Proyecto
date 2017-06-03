@@ -3,6 +3,7 @@
 <%@ page import = "datos.MesaFinal" %>
 <%@ page import = "datos.Mesa"%>
 <%@ page import = "java.util.List" %>
+<%@ page import = "negocio.MesaABM" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,20 +14,21 @@
 	<script type="text/javascript" >
 		
 		$(document).ready(function(){
-			$("#terminar").click(function () {
-				
-				var id = $("#idTerminar").val();
-				console.log("id:" + id );
+			
+			$("#unir").click(function () {
+				var mesa1 = $("#idMesa1").val();
+				var mesa2 = $("#idMesa2").val();
 				var hecho = 0;
-				if (id != "" ){	
+				console.log(mesa1 + ":" + mesa2);
+				if (mesa1 != 0 && mesa2 != 0){	
 					hecho = 1;
 					$.ajax({	
 						type: "POST",
-						url: "terminarMesa", 
-						data: { id:id },
+						url: "unirMesas", 
+						data: { mesa1: mesa1, mesa2 : mesa2 },
 						async: false 
 					}).done(function (data) {
-						$("#actualizar").html(data);
+						$("#actualizarLayout").html(data);
 					})
 				}
 				if (hecho == 1){
@@ -40,22 +42,54 @@
 						$("#mostrarMesasFinales").html(data);
 					})
 				}
+			});
+			
+			
+			
+			$("#terminar").click(function () {
+				
+				var id = $("#idTerminar").val();
+				console.log("id:" + id );
+				var hecho1 = 0;
+				if (id != 0 ){	
+					hecho1 = 1;
+					$.ajax({	
+						type: "POST",
+						url: "terminarMesa", 
+						data: { id:id },
+						async: false 
+					}).done(function (data) {
+						$("#actualizarLayout").html(data);
+					})
+				}
+				if (hecho1 == 1){
+					hecho1 = 0;
+					$.ajax({	
+						type: "POST",
+						url: "vistaMesasFinales", 
+						data: "",
+						async: false 
+					}).done(function (data) {
+						$("#mostrarMesasFinales").html(data);
+					})
+				}
 				
 			});
 			
-			$("#separar").click(function () {
-				
-				var id = $("#idSeparar").val();
+			$("#liberar").click(function () {
+				console.log("liberando");
+				var id = $("#idLiberar").val();
 				var hecho2 = 0;
-				if (id != ""){	
+				if (id != 0){	
 					hecho2 = 1;
+					console.log("liberando 2");
 					$.ajax({	
 						type: "POST",
-						url: "controlJefeSalon", 
-						data: { mesa1: mesa1, mesa2:mesa2 },
+						url: "liberarMesa", 
+						data: { id : id},
 						async: false 
 					}).done(function (data) {
-						$("#actualizar").html(data);
+						$("#actualizarLayout").html(data);
 					})
 				}
 				if (hecho2 == 1){
@@ -71,6 +105,7 @@
 				}
 				
 			});
+
 				
 		})
 	</script> 
@@ -79,10 +114,43 @@
 	
 </head>
 <body>
+	
+	
+	<div class="container" >
+	<% 
+	MesaABM abm= new MesaABM(); 
+	List<Mesa> mesas = null;
+	%>
+	 <br><h3 >Unir Mesas:  </h3> 
+		<form class="navbar-form navbar-left">
+			
+				<label for="idMesa">IdMesa:</label>
+				<select class="selectpicker form-control" id="idMesa1" >
+					<% mesas = abm.traerLibres(); %>
+					<option value="0">Seleccione una Mesa</option>				
+					<%	
+					for(Mesa m : mesas){ %>
+					<option value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
+					<% } %>			
+				</select>
+				
+				<label for="idMesa">IdMesa:</label>
+				<select class="selectpicker form-control" id="idMesa2" >
+					
+					<option value="0">Seleccione una Mesa</option>				
+					<% mesas = abm.traerLibres(); 
+					for(Mesa m : mesas){ %>
+					<option value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
+					<% } %>			
+				</select>
+				<INPUT id="unir" type="button" class="btn btn-success" value="Unir" />	
+		</form>
+	 </div>
+	
 	<% List<MesaFinal> mesasFinales = (List)request.getAttribute("mesasFinales");  %>
 	
 	<div class = "container">
-	<h3> Mesas Compuestas: </h3> 
+	<h3> Mesas Compuestas: <%=mesasFinales.size() %></h3> 
 	<table border = "1" width = "400" cellspacing="2" >
 		<% 
 			int salto = 0;
@@ -113,26 +181,38 @@
 				}
 			}
 		%>
-	</table>
+	 </table>
+	</div>
 	<% if (!mesasFinales.isEmpty()){ %>
-		</div>
-			<div class = "container">
+		<% MesaABM mAbm = new MesaABM();
+		%>
+		 <div class = "container">
 			<form class="navbar-form navbar-center">
-				<div class="form-group">
 				<label for="idMesa">IdMesa:</label>
-				<INPUT id="idTerminar" name="idTerminar" placeHolder = "insert id mesa" size = "8">
-				</div>
+				<select class="selectpicker form-control" id="idTerminar" >
+					<option value="0">Seleccione una Mesa</option>				
+					<%
+					mesas = mAbm.traerOcupadas();
+					for(Mesa m : mesas){ %>
+					<option value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
+					<% } %>			
+				</select>		
 				<INPUT id="terminar" type="button" class="btn btn-success" value= "Terminar" />
 			</form>
 		</div>
 		
-		<div class = "container">
+		<div class = "container" >
 			<form class="navbar-form navbar-center">
-				<div class="form-group">
 				<label for="idMesa">IdMesa:</label>
-				<INPUT id="idSeparar" name="idSeparar" placeHolder = "insert id mesa" size = "8">
-				</div>
-				<INPUT id="separar" type="button" class="btn btn-success" value="Separar" />
+				<select class="selectpicker form-control" id="idLiberar" >
+					<option value="0">Seleccione una Mesa</option>				
+					<% 
+					mesas = mAbm.traerTerminadas();
+					for(Mesa m : mesas){ %>
+					<option value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
+					<% } %>			
+				</select>
+				<INPUT id="liberar" type="button" class="btn btn-success" value= "Liberar" />
 			</form>
 		</div>
 	 <%} %>

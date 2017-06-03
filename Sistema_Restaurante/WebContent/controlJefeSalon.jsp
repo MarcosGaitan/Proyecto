@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import= "datos.Empleado" %>
+<%@ page import= "negocio.MesaABM" %>
+<%@ page import = "datos.Mesa"%>
+<%@ page import = "java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,33 +16,7 @@
 	<script type="text/javascript" >
 		
 		$(document).ready(function(){
-			$("#unir").click(function () {
-				var mesa1 = $("#mesa1").val();
-				var mesa2 = $("#mesa2").val();
-				var hecho = 0;
-				if (mesa1 != "" && mesa2 != ""){	
-					hecho = 1;
-					$.ajax({	
-						type: "POST",
-						url: "controlJefeSalon", 
-						data: { mesa1: mesa1, mesa2:mesa2 },
-						async: false 
-					}).done(function (data) {
-						$("#actualizar").html(data);
-					})
-				}
-				if (hecho == 1){
-					hecho = 0;
-					$.ajax({	
-						type: "POST",
-						url: "vistaMesasFinales", 
-						data: "",
-						async: false 
-					}).done(function (data) {
-						$("#mostrarMesasFinales").html(data);
-					})
-				}
-			});
+		
 			
 			$("#cargar").click(function () {
 				
@@ -49,7 +26,7 @@
 					data: "",
 					async: false 
 				}).done(function (data) {
-					$("#actualizar").html(data);
+					$("#actualizarLayout").html(data);
 					
 				})
 					$.ajax({	
@@ -70,11 +47,6 @@
 <body>	
 	<%@include file = "/cabecera.jsp" %> 
 	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
-	<%-- 
-	<%@include file = "/layoutMesas.jsp" %>
-	<jsp:include page="url" flush="true|false" />.
-	<jsp:include page="/layoutMesas" flush="true" />
-	--%>
 	<br>
 	<h2 >
 		Bienvenido Jefe de Salon: <BR>
@@ -91,28 +63,13 @@
 		</form>
 	 </div>
 	  
-	<div id="actualizar">
+	<div id="actualizarLayout">
 	</div> 
 	<BR > 
-
 	
-	<div class="container" >
-	 <BR > <h3 >Unir Mesas:  </h3> 
-		<form class="navbar-form navbar-left">
-			<div class="form-group">
-				<label for="mesa1">Mesa:</label>
-				<INPUT id="mesa1" name="mesa1" size = "3" placeholder = "insert Id">		
-				<label for="mesa2">Mesa:</label >
-				<INPUT id="mesa2" name="mesa2" size = "3" placeholder = "insert Id">
-				<INPUT id="unir" type="button" class="btn btn-success" value="Unir" />
-			</div>
-		</form>
-	  </div>
-	  
-	  	
-	  <div id= "mostrarMesasFinales">
-	  </div>
-	  <br>
+	<div id= "mostrarMesasFinales">
+	</div>
+	<br>
 	
 </body>
 </html>

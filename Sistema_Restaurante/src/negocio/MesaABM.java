@@ -37,4 +37,17 @@ public class MesaABM {
 		dao.actualizar(mesa);
 	}
 	
+	public List<Mesa> traerTerminadas(){
+		List<Mesa> mesas = dao.traerTerminadas();
+		return mesas;
+	}
+	
+	public List<Mesa> traerOcupadas(){
+		List<Mesa> mesas = dao.traerOcupadas();
+		return mesas;
+	}
+	public List<Mesa> traerLibres(){
+		List<Mesa> mesas = dao.traerLibres();
+		return mesas;
+	}
 }

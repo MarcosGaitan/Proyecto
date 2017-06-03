@@ -27,6 +27,7 @@ public class MesaFinal {
 		this.activa = true;
 		this.ticket = null;
 		this.mesas =  new HashSet<Mesa>();
+		this.nombre = "";
 
 	}
 
@@ -113,6 +114,7 @@ public class MesaFinal {
 			}			
 		}
 		if(esta == false) {
+			this.nombre +=  mesa.getIdMesa()+"; " ;
 			this.cantidadComensales +=2;
 			this.getMesas().add(mesa);
 		}
@@ -123,7 +125,7 @@ public class MesaFinal {
 		
 		for (Mesa m : this.mesas){
 						
-			m.setEstado("terminada");
+			m.terminar();;
 		}
 		
 	}
@@ -132,7 +134,7 @@ public class MesaFinal {
 		this.activa = false;
 		this.tiempoFin = new GregorianCalendar();
 		for (Mesa m : this.mesas){
-			m.setEstado("libre");
+			m.dejarLibre();
 		}
 	}
 	

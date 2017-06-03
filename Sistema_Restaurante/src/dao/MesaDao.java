@@ -66,4 +66,48 @@ public class MesaDao {
 		return lista;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Mesa> traerTerminadas() throws HibernateException
+	{
+		List<Mesa> lista = null;
+		try
+		{
+			iniciaOperacion();
+			String hql = "From Mesa m where m.estado = 'terminada' order by m.idMesa";
+			lista = session.createQuery(hql).list();
+		}finally{
+			session.close();
+		}
+		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Mesa> traerOcupadas() throws HibernateException
+	{
+		List<Mesa> lista = null;
+		try
+		{
+			iniciaOperacion();
+			String hql = "From Mesa m where m.estado = 'ocupada' order by m.idMesa";
+			lista = session.createQuery(hql).list();
+		}finally{
+			session.close();
+		}
+		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Mesa> traerLibres() throws HibernateException
+	{
+		List<Mesa> lista = null;
+		try
+		{
+			iniciaOperacion();
+			String hql = "From Mesa m where m.estado = 'libre' order by m.idMesa";
+			lista = session.createQuery(hql).list();
+		}finally{
+			session.close();
+		}
+		return lista;
+	}
 }
