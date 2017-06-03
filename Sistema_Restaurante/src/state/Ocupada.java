@@ -24,8 +24,9 @@ public class Ocupada extends EstadoMesa{
 
 	@Override
 	public EstadoMesa terminar() {
-		this.color = "azul";
-		return new Terminada();
+		EstadoMesa terminada = new Terminada();
+		terminada.color = "azul";
+		return terminada;
 	}
 
 }

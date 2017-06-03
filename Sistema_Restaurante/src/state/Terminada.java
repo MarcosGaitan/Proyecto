@@ -4,8 +4,9 @@ public class Terminada extends EstadoMesa{
 
 	@Override
 	public EstadoMesa dejarLibre() {
-		this.color = "verde";
-		return new Libre();
+		EstadoMesa libre = new Libre();
+		libre.setColor("verde");
+		return libre;
 	}
 
 	@Override

@@ -15,6 +15,8 @@
     <welcome-file>controlJefeSalon.jsp</welcome-file>
     <welcome-file>ControladorUnirMesas.jsp</welcome-file>
     <welcome-file>layoutMesas.jsp</welcome-file>
+    <welcome-file>vistaMesasFinales.jsp</welcome-file>
+     <welcome-file>terminarMesa.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>IniciarSesion</servlet-name>
@@ -48,8 +50,7 @@
     <servlet-name>VerComanda</servlet-name>
     <url-pattern>/vistaComandas</url-pattern>
   </servlet-mapping>
-  
- <servlet>
+  <servlet>
     <servlet-name>UnirMesas</servlet-name>
     <servlet-class> controladores.ControladorUnirMesas </servlet-class>
   </servlet>
@@ -57,5 +58,21 @@
     <servlet-name>UnirMesas</servlet-name>
     <url-pattern>/controlJefeSalon</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <servlet-name>traerMesasFinales</servlet-name>
+    <servlet-class> controladores.ControladorTraerMesasFinales </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>traerMesasFinales</servlet-name>
+    <url-pattern>/vistaMesasFinales</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>terminarMesas</servlet-name>
+    <servlet-class> controladores.ControladorTerminarMesa</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>terminarMesas</servlet-name>
+    <url-pattern>/terminarMesa</url-pattern>
+  </servlet-mapping>
 </web-app>

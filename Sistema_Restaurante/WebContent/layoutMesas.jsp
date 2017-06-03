@@ -31,8 +31,9 @@
 			<%
 				salto++;
 				if(salto == 4){ 
-					%>
-					<tr>		
+					%>		
+					<tr>
+	
 					<%	
 					salto=0;
 				}

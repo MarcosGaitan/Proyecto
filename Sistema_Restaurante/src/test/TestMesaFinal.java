@@ -25,7 +25,7 @@ public class TestMesaFinal {
 		try 
 		{
 			long idMesa = 2;
-			//mesaFinal = abm.traerMesaFinalDesdeIdMesa(idMesa);
+			mesaFinal = abm.traerMesaFinalDesdeIdMesa(idMesa);
 			
 			Mesa mesa1 = mesaABM.traerMesa(idMesa1);
 			Mesa mesa2 = mesaABM.traerMesa(idMesa2);
@@ -37,19 +37,43 @@ public class TestMesaFinal {
 				System.out.println("\n mesa id: :" + m.getIdMesa() + "\n");
 			}
 			System.out.println("\n mesa1:" + mesaFinal.getIdMesaFinal() + "\n");
-			/*
+			
 			mesaFinal = abm.traerMesaFinalyComandas(mesaFinal.getIdMesaFinal());
 			for (Comanda c : mesaFinal.getComandas()){
 				for (ComandaItem ci : c.getComandaItems()){
 					System.out.println("producto: " + ci.getProducto().getNombre());
 				}
 			}
-			*/
+			
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-
+		
+	
+		/*
+		// traer Mesas Finales ACtivas y recorrer sus mesas
+		try 
+		{
+			
+			List<MesaFinal> lista = abm.traerMesasFinalesActivas();
+	
+			
+			for (MesaFinal mf : lista){
+				System.out.println("\n mesaFinal:" + mf.getIdMesaFinal() + "\n");
+				for(Mesa m : mf.getMesas()){
+					System.out.println("\n mesa id: :" + m.getIdMesa() + "\n");
+					System.out.println("\n estado: :" + m.getEstado() + "\n");
+				}
+				
+			}
+		
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+		*/
 	}
 
 }

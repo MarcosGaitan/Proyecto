@@ -26,6 +26,9 @@ public class MesaFinalDao {
 		throw new HibernateException( "ERROR en la capa de acceso a datos" , he);
 	}
 	
+	
+	
+	
 	public long agregar(MesaFinal objeto) {
 		long id = 0;
 		try {
@@ -41,6 +44,19 @@ public class MesaFinalDao {
 		return id;
 	}
 	
+	public void actualizar(MesaFinal mesaFinal){
+		try{
+			iniciaOperacion();
+			session.update(mesaFinal);
+			tx.commit();
+		}catch(HibernateException he){
+			manejaExcepcion(he);
+			throw he;
+		}finally{
+			session.close();
+		}
+		
+	}
 	public MesaFinal traerMesaFinal(long idMesaFinal) throws HibernateException{
 		MesaFinal objeto = null;
 		try
@@ -99,23 +115,42 @@ public class MesaFinalDao {
 		try
 		{
 			iniciaOperacion();
-			String hql = "from MesaFinal mf where mf.activa = 1";
+			String hql = "from MesaFinal mf where mf.activa = 1 order by mf.idMesaFinal";
 			lista = session.createQuery(hql).list();
 			boolean encontrado = false;
 			for (int i = 0; i<lista.size() && !encontrado;i++){
-				System.out.println("primer for:");
 				for (Mesa m : lista.get(i).getMesas()){
 					if(m.getIdMesa() == idMesa){
 						objeto = lista.get(i);
 						encontrado=true;
+						Hibernate.initialize(objeto.getMesas());
 					}
 				}
 			}
-
+			
+			
 		}finally{
 			session.close();
 		}
 		return objeto;
+	}
+	
+	public List<MesaFinal> traerMesaFinalesActivas() throws HibernateException
+	{
+		List<MesaFinal> lista = null;
+		try
+		{
+			iniciaOperacion();
+			String hql = "From MesaFinal m where m.activa = 1";
+			lista = session.createQuery(hql).list();
+			
+			for (MesaFinal mf : lista){
+				Hibernate.initialize(mf.getMesas());
+			}
+		}finally{
+			session.close();
+		}
+		return lista;
 	}
 	
 }

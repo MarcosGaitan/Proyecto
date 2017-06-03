@@ -13,10 +13,13 @@ public class MesaFinalABM {
 	{
 		long id=0;
 		id= dao.agregar(mesaFinal);
-		
 		return id;
 	}
 	
+	public void actualizarMesaFinal(MesaFinal mesaFinal)
+	{
+		dao.actualizar(mesaFinal);
+	}
 	
 	public MesaFinal traerMesaFinal(long idMesaFinal) throws Exception
 	{
@@ -38,10 +41,27 @@ public class MesaFinalABM {
 		if (mesaFinal == null) throw new Exception("No existe tal mesa final");
 		return mesaFinal;
 	}
+
 	
 	public MesaFinal traerMesaFinalDesdeIdMesa(long idMesa) throws Exception{
+	
 		MesaFinal mesaFinal = dao.traerMesaFinalDesdeIdMesa(idMesa);
 		//if (mesaFinal == null) throw new Exception("No existe mesafinal");
 		return mesaFinal;
+	}
+	
+	public List<MesaFinal> traerMesasFinalesActivas() throws Exception{
+		List<MesaFinal> mesasFinales = dao.traerMesaFinalesActivas();
+		if (mesasFinales == null) throw new Exception("no hay mesas finales activas");
+		return mesasFinales;
+	}
+	
+	public void terminarMesas(MesaFinal mesaFinal)
+	{
+		mesaFinal.terminarMesas();
+	}
+	public void liberarMesas(MesaFinal mesaFinal){
+		mesaFinal.liberarMesas();
+		dao.actualizar(mesaFinal);
 	}
 }

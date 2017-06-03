@@ -14,21 +14,35 @@
 		
 		$(document).ready(function(){
 			$("#unir").click(function () {
-				console.log("unir");
 				var mesa1 = $("#mesa1").val();
 				var mesa2 = $("#mesa2").val();
-				$.ajax({	
-					type: "POST",
-					url: "controlJefeSalon", 
-					data: { mesa1: mesa1, mesa2:mesa2 },
-					async: false 
-				}).done(function (data) {
-					$("#actualizar").html(data);
-				})
+				var hecho = 0;
+				if (mesa1 != "" && mesa2 != ""){	
+					hecho = 1;
+					$.ajax({	
+						type: "POST",
+						url: "controlJefeSalon", 
+						data: { mesa1: mesa1, mesa2:mesa2 },
+						async: false 
+					}).done(function (data) {
+						$("#actualizar").html(data);
+					})
+				}
+				if (hecho == 1){
+					hecho = 0;
+					$.ajax({	
+						type: "POST",
+						url: "vistaMesasFinales", 
+						data: "",
+						async: false 
+					}).done(function (data) {
+						$("#mostrarMesasFinales").html(data);
+					})
+				}
 			});
 			
 			$("#cargar").click(function () {
-				console.log("cargar");
+				
 				$.ajax({	
 					type: "POST",
 					url: "layoutMesas", 
@@ -36,29 +50,39 @@
 					async: false 
 				}).done(function (data) {
 					$("#actualizar").html(data);
+					
+				})
+					$.ajax({	
+					type: "POST",
+					url: "vistaMesasFinales", 
+					data: "",
+					async: false 
+				}).done(function (data) {
+					$("#mostrarMesasFinales").html(data);
 				})
 			});
+			
+			
 			
 		})
 	</script> 
 </head>
 <body>	
 	<%@include file = "/cabecera.jsp" %> 
-	
+	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
 	<%-- 
 	<%@include file = "/layoutMesas.jsp" %>
 	<jsp:include page="url" flush="true|false" />.
 	<jsp:include page="/layoutMesas" flush="true" />
 	--%>
-	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
-	
 	<br>
-	<h1 >
+	<h2 >
 		Bienvenido Jefe de Salon: <BR>
 		<%= empleado.getApellido() %>
 		<%= empleado.getNombre() %> <BR>
 	<BR >
-	</h1>
+	</h2>
+	
 	<div class="container" >
 		<form class="navbar-form navbar-left">
 			<div class="form-group">
@@ -69,20 +93,26 @@
 	  
 	<div id="actualizar">
 	</div> 
-	<BR >
+	<BR > 
+
 	
 	<div class="container" >
-	 <BR > <label >Unir Mesas:  </label> <br>
+	 <BR > <h3 >Unir Mesas:  </h3> 
 		<form class="navbar-form navbar-left">
 			<div class="form-group">
 				<label for="mesa1">Mesa:</label>
-				<INPUT id="mesa1" name="mesa1" size = "3">		
+				<INPUT id="mesa1" name="mesa1" size = "3" placeholder = "insert Id">		
 				<label for="mesa2">Mesa:</label >
-				<INPUT id="mesa2" name="mesa2" size = "3">
-				<INPUT id="unir" type="button" class="btn btn-success" value="unir" />
+				<INPUT id="mesa2" name="mesa2" size = "3" placeholder = "insert Id">
+				<INPUT id="unir" type="button" class="btn btn-success" value="Unir" />
 			</div>
 		</form>
 	  </div>
+	  
+	  	
+	  <div id= "mostrarMesasFinales">
+	  </div>
+	  <br>
 	
 </body>
 </html>

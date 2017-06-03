@@ -29,20 +29,28 @@ public class Mesa {
 	public void dejarLibre()
 	{
 		this.setEstadoMesa(this.getEstadoMesa().dejarLibre());
-		this.estado = "libre";
+		if (this.getEstadoMesa().getColor().equals("verde")){
+			this.estado = "libre";
+		}
 	}
 	
 	public void ocupar()
 	{
+		
 		this.setEstadoMesa(this.getEstadoMesa().ocupar());
+		if (this.getEstadoMesa().getColor().equals("rojo")){
 			
-		this.estado = "ocupada";
+			this.estado = "ocupada";
+		}
 	}
 	
 	public void terminar()
 	{
 		this.setEstadoMesa(this.getEstadoMesa().terminar());
-		this.estado = "terminada";
+		if (this.getEstadoMesa().getColor().equals("azul")){
+			this.estado = "terminada";
+		}
+		
 	}
 	/* Getters and Setters*/
 	public long getIdMesa() {
@@ -84,7 +92,20 @@ public class Mesa {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
+	
+	
+	public void inicializarMesa(){
+		if (this.getEstado().startsWith("l")){
+			this.setEstadoMesa(new Libre());
+			this.getEstadoMesa().setColor("verde");
+		}else if (this.getEstado().startsWith("o")){
+			this.setEstadoMesa(new Ocupada());
+			this.getEstadoMesa().setColor("rojo");
+		}else{
+			this.setEstadoMesa(new Terminada());
+			this.getEstadoMesa().setColor("azul");
+		}
+	}
 	@Override
 	public String toString() {
 		return "Mesa [idMesa=" + idMesa + ", cantidadComensales=" + cantidadComensales + ", numero=" + numero

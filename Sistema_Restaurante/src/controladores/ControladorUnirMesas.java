@@ -40,34 +40,45 @@ public class ControladorUnirMesas extends HttpServlet {
 			
 			MesaFinalABM mesaFinalABM = new MesaFinalABM();
 			MesaABM mesaABM = new MesaABM();
+			MesaFinal mesaFinal = null;
+			
+			MesaFinal mesaFinal1 = mesaFinalABM.traerMesaFinalDesdeIdMesa(idMesa1);
+			MesaFinal mesaFinal2 = mesaFinalABM.traerMesaFinalDesdeIdMesa(idMesa2);
+			System.out.println("aca:"+ idMesa1 + "  id2:" + idMesa2);
 		
-			
-			MesaFinal mesaFinal = mesaFinalABM.traerMesaFinalDesdeIdMesa(idMesa1);
-			
-			
-			if(mesaFinal != null){
+			if (mesaFinal1 == null || mesaFinal2 == null){
+				if (mesaFinal1 != null){
+					mesaFinal = mesaFinal1;		
+				}
+				else{
+					mesaFinal = mesaFinal2;
+				}
 				
-				
-			}else{
-				
-			
-				
-				Mesa mesa1 = mesaABM.traerMesa(idMesa1);
+				Mesa mesa1 = mesaABM.traerMesa(idMesa1);										
 				Mesa mesa2 = mesaABM.traerMesa(idMesa2);
-				mesa1.ocupar();
-				mesa2.ocupar();
-			
-				mesaFinal = new MesaFinal(true);
-				System.out.println("cree la mesa");
-				mesaFinal.agregarMesa(mesa1);
-				mesaFinal.agregarMesa(mesa2);
-				System.out.println("agrego las mesas");
-				mesaABM.actualizarMesa(mesa1);
 				
+				mesa1.ocupar();	
+				mesa2.ocupar();		
+				mesaABM.actualizarMesa(mesa1);
 				mesaABM.actualizarMesa(mesa2);
-				System.out.println("actualice las mesas");
-				mesaFinalABM.agregarMesaFinal(mesaFinal);
-				System.out.println("deberia salir aca");
+				 
+		
+				if(mesaFinal != null){
+					   
+					    mesaFinal.agregarMesa(mesa1);
+						mesaFinal.agregarMesa(mesa2);
+						mesaABM.actualizarMesa(mesa2);
+						mesaFinalABM.actualizarMesaFinal(mesaFinal);
+					
+				}else{
+					
+						mesaFinal = new MesaFinal(true);
+						mesaFinal.agregarMesa(mesa1);
+						mesaFinal.agregarMesa(mesa2);
+							
+						mesaFinalABM.agregarMesaFinal(mesaFinal);
+					}
+			
 			}
 			
 			request .getRequestDispatcher( "/layoutMesas.jsp" ).forward( request ,response );

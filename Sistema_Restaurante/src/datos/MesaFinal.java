@@ -4,6 +4,8 @@ import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
+import negocio.MesaABM;
+
 public class MesaFinal {
 	
 	private long idMesaFinal;
@@ -104,12 +106,34 @@ public class MesaFinal {
 	
 	public void agregarMesa(Mesa mesa)
 	{
-		System.out.println("agrego la mesa");
-		this.getMesas().add(mesa);
-		System.out.println("agregue la mesa");
+		boolean esta = false;
+		for (Mesa m : this.mesas){
+			if(m.getIdMesa() == mesa.getIdMesa()){
+				esta = true;
+			}			
+		}
+		if(esta == false) {
+			this.cantidadComensales +=2;
+			this.getMesas().add(mesa);
+		}
+		
 	}
 	
+	public void terminarMesas(){
+		
+		for (Mesa m : this.mesas){
+						
+			m.setEstado("terminada");
+		}
+		
+	}
 	
-	
+	public void liberarMesas(){
+		this.activa = false;
+		this.tiempoFin = new GregorianCalendar();
+		for (Mesa m : this.mesas){
+			m.setEstado("libre");
+		}
+	}
 	
 }

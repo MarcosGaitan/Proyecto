@@ -14,9 +14,9 @@ public class Libre extends EstadoMesa{
 
 	@Override
 	public EstadoMesa ocupar() {
-		
-		this.color = "rojo";
-		return new Ocupada();
+		EstadoMesa ocupada = new Ocupada();
+		ocupada.setColor("rojo");
+		return ocupada;
 	}
 
 	@Override
@@ -28,6 +28,10 @@ public class Libre extends EstadoMesa{
 		}
 		return this;
 		
+	}
+	@Override
+	public String getColor() {
+		return this.color;
 	}
 
 }
