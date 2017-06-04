@@ -54,7 +54,7 @@ public class ControladorTerminarMesa extends HttpServlet {
 			
 			}
 			catch (Exception e) {
-				response.sendError(500, "no existe mesa final con esa clave. ERROR." );
+				response.sendError(500, " TerminarMesa(). ERROR." );
 			}
 			
 	}

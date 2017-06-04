@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datos.Mesa;
 import datos.MesaFinal;
-import negocio.MesaABM;
+import datos.Ticket;
 import negocio.MesaFinalABM;
+import negocio.TicketABM;
 
 
-@WebServlet("/ControladorTraerMesasFinales")
-public class ControladorTraerMesasFinales extends HttpServlet {
+@WebServlet("/ControladorReporteEstadoSalon")
+public class ControladorReporteEstadoSalon extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request , HttpServletResponse response )
 			throws ServletException, IOException {
@@ -31,21 +31,22 @@ public class ControladorTraerMesasFinales extends HttpServlet {
 			response ) throws ServletException, IOException {
 			response .setContentType( "text/html;charset=UTF-8" );
 			try {
-				MesaABM abmMesa = new MesaABM();
-				MesaFinalABM abm = new MesaFinalABM();
 				
-				int activa= 1;	// mesas activas = true
-				List<MesaFinal> mesasFinales = abm.traerMesasFinalesActivas(activa);
-				
-				request.setAttribute("mesasFinales", mesasFinales);
-				
-				request.getRequestDispatcher("/vistaMesasFinales.jsp").forward(request, response);
-			}catch (Exception e) {
-				response.sendError(500, "no se pudo traer las mesas . ERROR." );
-			}
 			
+				
+			MesaFinalABM mesaFinalABM= new MesaFinalABM ();
+			
+			int activa = 0; // mesas activas = false;
+			List<MesaFinal> lstMesaFinal = mesaFinalABM.traerMesasFinalesActivas(activa);
+			
+			request.setAttribute( "lstMesaFinal" , lstMesaFinal );
+			
+			request .getRequestDispatcher( "/vistaReporteEstadoSalon.jsp" ).forward( request ,response );
+			}
+			catch (Exception e) {
+				response.sendError(500, "no existe mesa final con esa clave. ERROR." );
+			}
 	}
 
-	
 
 }

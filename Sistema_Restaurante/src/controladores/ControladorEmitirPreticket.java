@@ -28,9 +28,7 @@ public class ControladorEmitirPreticket  extends HttpServlet {
 			response ) throws ServletException, IOException {
 			response .setContentType( "text/html;charset=UTF-8" );
 			try {
-				
-			System.out.println("\n Emitiendo Preticket lalala" );
-			
+					
 			String idMesa = request.getParameter ( "idMesa" );
 			long id = Long.parseLong(idMesa);
 			

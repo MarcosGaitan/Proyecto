@@ -20,37 +20,38 @@ public class TestMesaFinal {
 		long idMesa1 = 1;
 		long idMesa2 = 3;
 		
-		
+		/*
 		// traer mesa final desde Id con comandas y todo
 		try 
 		{
 			long idMesa = 1;
 			mesaFinal = abm.traerMesaFinalDesdeIdMesa(idMesa);
 			
-			/*
+			
 			Mesa mesa1 = mesaABM.traerMesa(idMesa1);
 			Mesa mesa2 = mesaABM.traerMesa(idMesa2);
 			mesaFinal.agregarMesa(mesa1);
 			mesaFinal.agregarMesa(mesa2);
-			*/
+			
 			System.out.println("\n idMesaFinal:" + mesaFinal.getIdMesaFinal() + "\n");
 			for(Mesa m : mesaFinal.getMesas()){
 				System.out.println("\n mesa id: :" + m+ "\n");
 			}
 			
-			/*
+			
 			mesaFinal = abm.traerMesaFinalyComandas(mesaFinal.getIdMesaFinal());
 			for (Comanda c : mesaFinal.getComandas()){
 				for (ComandaItem ci : c.getComandaItems()){
 					System.out.println("producto: " + ci.getProducto().getNombre());
 				}
 			}
-			*/
+			
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
+		*/
 	
 		/*
 		// traer Mesas Finales ACtivas y recorrer sus mesas
@@ -75,6 +76,37 @@ public class TestMesaFinal {
 		}
 		
 		*/
+		try 
+		{
+			
+			MesaFinalABM mesaFinalABM= new MesaFinalABM ();
+			
+			int activa = 0; // mesas activas = false;
+			List<MesaFinal> lstMesaFinal = mesaFinalABM.traerMesasFinalesActivas(activa);
+			
+			for (MesaFinal mf : lstMesaFinal){
+				System.out.println("\n mesaFinal:" + mf.getIdMesaFinal() + "\n");
+			}
+			
+			for (MesaFinal mf : lstMesaFinal){
+				mf = mesaFinalABM.traerMesaFinalyComandas(mf.getIdMesaFinal()) ;
+				for(Comanda c : mf.getComandas()){
+					System.out.println("\n comanda id: :" + c.getIdComanda() + "\n");
+					for(ComandaItem ci : c.getComandaItems()){
+						System.out.println("\n nombre id: :" + ci.getProducto().getNombre() + "\n");
+							
+					}
+				}
+			}
+			
+			
+		
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+		
 	}
 
 }

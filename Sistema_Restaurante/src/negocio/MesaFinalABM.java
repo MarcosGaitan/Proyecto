@@ -55,9 +55,9 @@ public class MesaFinalABM {
 		return mesaFinal;
 	}
 	
-	public List<MesaFinal> traerMesasFinalesActivas() throws Exception{
-		List<MesaFinal> mesasFinales = dao.traerMesaFinalesActivas();
-		if (mesasFinales == null) throw new Exception("no hay mesas finales activas");
+	public List<MesaFinal> traerMesasFinalesActivas(int activa) throws Exception{
+		List<MesaFinal> mesasFinales = dao.traerMesaFinalesActivas(activa);
+		//if (mesasFinales == null) throw new Exception("no hay mesas finales en el estado sugerido");
 		return mesasFinales;
 	}
 	

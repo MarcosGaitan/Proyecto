@@ -64,7 +64,9 @@ public class Funciones {
 		
 	}
 	public static String traerFecha(GregorianCalendar f){
-		return traerDia(f)+"/"+traerMes(f)+"/"+ traerAnio(f)+" "+ f.get(Calendar.HOUR_OF_DAY)+":"+f.get(Calendar.MINUTE);
+		String fecha = traerFechaCorta(f);
+		String hora = traerHora(f);
+		return  fecha + " " + hora;
 	}
 	
 	public static String traerFechaCorta(GregorianCalendar f){
@@ -89,10 +91,18 @@ public class Funciones {
 	
 	public static String traerHora(GregorianCalendar f){
 		
+		String tiempo= "";
+		
 		int hora =  f.get(Calendar.HOUR_OF_DAY);
+		if (hora < 10)tiempo = "0";
+		tiempo += hora + ":";
 		int min = f.get(Calendar.MINUTE);
+		if(min < 10) tiempo += "0";
+		tiempo += min + ":";
 		int seg = f.get(Calendar.SECOND);
-		return hora+":"+ min+ ":"+seg;
+		if(seg < 10) tiempo += "0";
+		tiempo += seg;
+		return tiempo;
 	}
 
 	public static boolean  esDiaHabil (GregorianCalendar f){

@@ -17,7 +17,6 @@
 		
 		$(document).ready(function(){
 		
-			
 			$("#cargar").click(function () {
 				
 				$.ajax({	
@@ -39,8 +38,17 @@
 				})
 			});
 			
-			
-			
+			$("#reporte").click(function () {
+				$.ajax({	
+					type: "POST",
+					url: "vistaReporteEstadoSalon", 
+					data: "",
+					async: false 
+				}).done(function (data) {
+					$("#verReporte").html(data);
+					
+				});
+			});
 		})
 	</script> 
 </head>
@@ -70,6 +78,17 @@
 	<div id= "mostrarMesasFinales">
 	</div>
 	<br>
+	
+	<div class = "container">
+		<form class="navbar-form navbar-center">
+			<div class="form-group">
+				<INPUT id= "reporte" type="button" class="btn btn-info" value="Generar Reporte" title="Generar un reporte de rotacion entre estados libres de Mesas" />
+			</div>
+		</form>
+	</div>
+	
+	<div id = "verReporte" >
+	</div>
 	
 </body>
 </html>

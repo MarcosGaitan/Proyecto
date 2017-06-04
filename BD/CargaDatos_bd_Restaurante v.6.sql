@@ -322,4 +322,7 @@ insert into comandaItem values(8, 1, 3, 30.0, 2);
 insert into comandaItem values(9, 2, 3, 28.0, 2);
 insert into comandaItem values(10, 3, 3, 50, 2);
 
-
+insert into comanda values(4, true, true, false, null, now(), 2, 2, 12);
+insert into comandaItem values(11, 1, 4, 30.0, 2);
+insert into comandaItem values(12, 2, 4, 28.0, 2);
+insert into comandaItem values(13, 3, 4, 50, 2);

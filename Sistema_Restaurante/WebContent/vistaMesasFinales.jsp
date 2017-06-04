@@ -108,10 +108,13 @@
 
 				
 		})
-	</script> 
 		
-	
-	
+	</script> 
+	<style type="text/css">
+	.ocupada {color:#FF0000;}
+	.terminada {color:#0066FF;}
+	.libre {color:#009900;}
+	</style>	
 </head>
 <body>
 	
@@ -126,11 +129,12 @@
 			
 				<label for="idMesa">IdMesa:</label>
 				<select class="selectpicker form-control" id="idMesa1" >
-					<% mesas = abm.traerLibres(); %>
 					<option value="0">Seleccione una Mesa</option>				
 					<%	
-					for(Mesa m : mesas){ %>
-					<option value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
+					mesas = abm.traerLibresyOcupadas();
+					for(Mesa m : mesas){	
+					%>
+						<option class="<%= m.getEstado()%>" value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
 					<% } %>			
 				</select>
 				
@@ -140,7 +144,7 @@
 					<option value="0">Seleccione una Mesa</option>				
 					<% mesas = abm.traerLibres(); 
 					for(Mesa m : mesas){ %>
-					<option value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
+					<option class="<%= m.getEstado()%>" value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
 					<% } %>			
 				</select>
 				<INPUT id="unir" type="button" class="btn btn-success" value="Unir" />	
@@ -151,7 +155,7 @@
 	
 	<div class = "container">
 	<h3> Mesas Compuestas: <%=mesasFinales.size() %></h3> 
-	<table border = "1" width = "400" cellspacing="2" >
+	<table border = "1" class="table table-striped table-bordered table-condensed" >
 		<% 
 			int salto = 0;
 			int i = 0; 
@@ -164,8 +168,7 @@
 				   		<% for (Mesa m : mf.getMesas()){ 
 				   		%>
 				   			n° <%= m.getNumero() %>, 
-				   			  
-				   			
+
 				   		<%} %>
 				   		<BR> 
 				   		
@@ -194,7 +197,7 @@
 					<%
 					mesas = mAbm.traerOcupadas();
 					for(Mesa m : mesas){ %>
-					<option value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
+					<option class="<%= m.getEstado()%>" value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
 					<% } %>			
 				</select>		
 				<INPUT id="terminar" type="button" class="btn btn-success" value= "Terminar" />
@@ -209,7 +212,7 @@
 					<% 
 					mesas = mAbm.traerTerminadas();
 					for(Mesa m : mesas){ %>
-					<option value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
+					<option class="<%= m.getEstado()%>" value="<%= m.getIdMesa() %>"><%= m.getNumero() %> </option>
 					<% } %>			
 				</select>
 				<INPUT id="liberar" type="button" class="btn btn-success" value= "Liberar" />

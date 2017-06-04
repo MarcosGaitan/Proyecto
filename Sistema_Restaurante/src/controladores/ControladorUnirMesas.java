@@ -37,33 +37,30 @@ public class ControladorUnirMesas extends HttpServlet {
 			long idMesa1 = Long.parseLong(request.getParameter ( "mesa1" ));
 			long idMesa2 = Long.parseLong(request.getParameter ( "mesa2" ));
 			
-			System.out.print("\naaaaaaaaaa");
+		
 			MesaFinalABM mesaFinalABM = new MesaFinalABM();
 			MesaABM mesaABM = new MesaABM();
 			MesaFinal mesaFinal = null;
-			System.out.print("\nbbbbbbbb");
-			
 			MesaFinal mesaFinal1 = mesaFinalABM.traerMesaFinalDesdeIdMesa(idMesa1);
 			MesaFinal mesaFinal2 = mesaFinalABM.traerMesaFinalDesdeIdMesa(idMesa2);
-			System.out.print("\nccccccccc");
 			if (mesaFinal1 == null || mesaFinal2 == null){
 				if (mesaFinal1 != null){
 					mesaFinal = mesaFinal1;		
-					System.out.print("\ndddddd");
+					
 				}
 				else{
 					mesaFinal = mesaFinal2;
-					System.out.print("\ndddddddddd");
+					
 				}
-				System.out.print("\nffffffffff");
+				
 				Mesa mesa1 = mesaABM.traerMesa(idMesa1);										
 				Mesa mesa2 = mesaABM.traerMesa(idMesa2);
-				System.out.print("\neeeeeeeeeee");
+		
 				mesa1.ocupar();	
 				mesa2.ocupar();		
 				mesaABM.actualizarMesa(mesa1);
 				mesaABM.actualizarMesa(mesa2);
-				System.out.print("\ngggggggggg");	 
+				
 		
 				if(mesaFinal != null){
 					   
@@ -71,18 +68,18 @@ public class ControladorUnirMesas extends HttpServlet {
 						mesaFinal.agregarMesa(mesa2);
 						mesaABM.actualizarMesa(mesa2);
 						mesaFinalABM.actualizarMesaFinal(mesaFinal);
-						System.out.print("\nhhhhhhhhhh");
+						
 				}else{
 					
 						mesaFinal = new MesaFinal(true);
 						mesaFinal.agregarMesa(mesa1);
 						mesaFinal.agregarMesa(mesa2);
-						System.out.print("\niiiiiiiiiiiii");
+						
 						mesaFinalABM.agregarMesaFinal(mesaFinal);
 					}
 			
 			}
-			System.out.print("\n jjjjjjjjjjjj");
+	
 			request .getRequestDispatcher( "/layoutMesas.jsp" ).forward( request ,response );
 			
 			}

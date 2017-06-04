@@ -19,21 +19,18 @@
 			List<Mesa> mesas = abm.traerMesa();
 			int salto=0;
 			for (Mesa m : mesas){
-			%>	
-					
+			%>			
 					<th>
 					N° <%= m.getNumero() %> <br>
 					<img src="/Sistema_Restaurante/images/<%= m.getEstado()%>.png" width= "40" height = "85"><br>
 					<br>
 					</th>
-					
-					
+	
 			<%
 				salto++;
 				if(salto == 4){ 
 					%>		
 					<tr>
-	
 					<%	
 					salto=0;
 				}

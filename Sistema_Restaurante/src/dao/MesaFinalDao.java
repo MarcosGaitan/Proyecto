@@ -135,13 +135,13 @@ public class MesaFinalDao {
 		return objeto;
 	}
 	
-	public List<MesaFinal> traerMesaFinalesActivas() throws HibernateException
+	public List<MesaFinal> traerMesaFinalesActivas(int activa) throws HibernateException
 	{
 		List<MesaFinal> lista = null;
 		try
 		{
 			iniciaOperacion();
-			String hql = "From MesaFinal m where m.activa = 1";
+			String hql = "From MesaFinal m where m.activa = "+ activa;
 			lista = session.createQuery(hql).list();
 			
 			for (MesaFinal mf : lista){

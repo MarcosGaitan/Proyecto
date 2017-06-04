@@ -50,4 +50,11 @@ public class MesaABM {
 		List<Mesa> mesas = dao.traerLibres();
 		return mesas;
 	}
+	
+	public List<Mesa> traerLibresyOcupadas(){
+		List <Mesa> lista = this.traerLibres();
+		lista.addAll(this.traerOcupadas());
+		return lista;
+		
+	}
 }
