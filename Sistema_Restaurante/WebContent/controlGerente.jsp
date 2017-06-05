@@ -5,13 +5,33 @@ pageEncoding = "ISO-8859-1" %>
 "http://www.w3.org/TR/html4/loose.dtd" >
 <html >
 <head >
-<meta http-equiv = "Content-Type" content = "text/html; charset=ISO-8859-1" >
-<title >Sistema Restaurante </title >
+	<meta http-equiv = "Content-Type" content = "text/html; charset=ISO-8859-1" >
+	<title >Sistema Restaurante </title >
+	<script type="text/JavaScript" src="js/jquery-3.2.1.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/> 
+	<script type="text/javascript" >
+		$(document).ready(function(){
+			function cargarLayout() {
+				$.ajax({	
+					type: "POST",
+					url: "layoutMesas", 
+					data: "",
+					async: false 
+				}).done(function (data) {
+					$("#actualizarLayout").html(data);	
+				})
+			}
+			setInterval(cargarLayout,5000);
+		})
+	</script>
 </head >
 <BODY >
 	<h2>Bienvenido al Restaurante</h2>
 	<%@include file = "/cabecera.jsp" %>
-	<%@include file = "/layoutMesas.jsp" %>
+	
+	<div id = "actualizarLayout">
+	</div>
+	
 	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
 	<BR >
 		Bienvenido Gerente: 
@@ -31,9 +51,7 @@ pageEncoding = "ISO-8859-1" %>
 		</TABLE>	
 		</form>
 	</div>
-	
-	
-	
+
 	<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
 	
 </BODY >

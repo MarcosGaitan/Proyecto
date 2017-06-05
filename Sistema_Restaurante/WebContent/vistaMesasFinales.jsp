@@ -19,7 +19,6 @@
 				var mesa1 = $("#idMesa1").val();
 				var mesa2 = $("#idMesa2").val();
 				var hecho = 0;
-				console.log(mesa1 + ":" + mesa2);
 				if (mesa1 != 0 && mesa2 != 0){	
 					hecho = 1;
 					$.ajax({	
