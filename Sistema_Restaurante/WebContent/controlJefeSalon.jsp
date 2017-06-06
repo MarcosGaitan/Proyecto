@@ -16,7 +16,7 @@
 	<script type="text/javascript" >
 		
 		$(document).ready(function(){
-			$("#cargar").click(function () {
+			function cargarLayout(){
 				
 				$.ajax({	
 					type: "POST",
@@ -35,8 +35,8 @@
 				}).done(function (data) {
 					$("#mostrarMesasFinales").html(data);
 				})
-			});
-			
+			};
+			window.onload = cargarLayout();
 			$("#reporte").click(function () {
 				$.ajax({	
 					type: "POST",
@@ -61,15 +61,7 @@
 		<%= empleado.getNombre() %> <BR>
 	<BR >
 	</h2>
-	
-	<div class="container" >
-		<form class="navbar-form navbar-left">
-			<div class="form-group">
-				<INPUT id= "cargar" type="button" class="btn btn-success" value="cargar Layout" />
-			</div>
-		</form>
-	 </div>
-	  
+		  
 	<div id="actualizarLayout">
 	</div> 
 	<BR > 

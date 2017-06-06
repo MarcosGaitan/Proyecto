@@ -154,7 +154,7 @@
 	
 	<div class = "container">
 	<h3> Mesas Compuestas: <%=mesasFinales.size() %></h3> 
-	<table border = "1" class="table table-striped table-bordered table-condensed" >
+	<table border = "1" class="table table-striped table-bordered table-condensed" style="width:50%" >
 		<% 
 			int salto = 0;
 			int i = 0; 
@@ -174,7 +174,7 @@
 				  	 </th>
 				<%
 				salto++;
-				if(salto == 4){ 
+				if(salto == 3){ 
 					%>
 					<tr>
 					</tr>		
