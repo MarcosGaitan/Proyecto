@@ -66,7 +66,6 @@ public class ControladorUnirMesas extends HttpServlet {
 					   
 					    mesaFinal.agregarMesa(mesa1);
 						mesaFinal.agregarMesa(mesa2);
-						mesaABM.actualizarMesa(mesa2);
 						mesaFinalABM.actualizarMesaFinal(mesaFinal);
 						
 				}else{
