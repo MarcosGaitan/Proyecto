@@ -126,7 +126,7 @@
 	 <br><h3 >Unir Mesas:  </h3> 
 		<form class="navbar-form navbar-left">
 			
-				<label for="idMesa">IdMesa:</label>
+				<label for="idMesa">NroMesa:</label>
 				<select class="selectpicker form-control" id="idMesa1" >
 					<option value="0">Seleccione una Mesa</option>				
 					<%	
@@ -137,7 +137,7 @@
 					<% } %>			
 				</select>
 				
-				<label for="idMesa">IdMesa:</label>
+				<label for="idMesa">NroMesa:</label>
 				<select class="selectpicker form-control" id="idMesa2" >
 					
 					<option value="0">Seleccione una Mesa</option>				
@@ -190,7 +190,7 @@
 		%>
 		 <div class = "container">
 			<form class="navbar-form navbar-center">
-				<label for="idMesa">IdMesa:</label>
+				<label for="idMesa">NroMesa:</label>
 				<select class="selectpicker form-control" id="idTerminar" >
 					<option value="0">Seleccione una Mesa</option>				
 					<%
@@ -205,7 +205,7 @@
 		
 		<div class = "container" >
 			<form class="navbar-form navbar-center">
-				<label for="idMesa">IdMesa:</label>
+				<label for="idMesa">NroMesa:</label>
 				<select class="selectpicker form-control" id="idLiberar" >
 					<option value="0">Seleccione una Mesa</option>				
 					<% 

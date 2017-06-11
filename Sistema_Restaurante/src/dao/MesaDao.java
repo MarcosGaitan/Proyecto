@@ -51,6 +51,20 @@ public class MesaDao {
 		return objeto;
 	}
 	
+	public Mesa traerMesa(int nroMesa) throws HibernateException{
+		Mesa objeto = null;
+		try
+		{
+			iniciaOperacion();
+			String hql = "from Mesa m where m.numero="+ nroMesa;
+			objeto = (Mesa)session.createQuery(hql).uniqueResult();
+		}
+		finally{
+			session.close();
+		}
+		return objeto;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Mesa> traerMesa() throws HibernateException
 	{

@@ -21,6 +21,15 @@ public class MesaABM {
 		return mesa;
 	}
 	
+	public Mesa traerMesa(int nroMesa) throws Exception
+	{
+		Mesa mesa = dao.traerMesa(nroMesa);
+		if (mesa == null) throw new Exception("no existe esa Mesa con ese numero");
+		mesa.inicializarMesa();
+		
+		return mesa;
+	}
+	
 	public List<Mesa> traerMesa() throws Exception
 	{
 		List<Mesa> lista = dao.traerMesa();

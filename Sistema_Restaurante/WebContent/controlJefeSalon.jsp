@@ -55,12 +55,14 @@
 	<%@include file = "/cabecera.jsp" %> 
 	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
 	<br>
-	<h2 >
-		Bienvenido Jefe de Salon: <BR>
-		<%= empleado.getApellido() %>
-		<%= empleado.getNombre() %> <BR>
-	<BR >
-	</h2>
+	<div class = "container" >
+		<h2 >
+			Bienvenido Jefe de Salon: <BR>
+			<%= empleado.getApellido() %>
+			<%= empleado.getNombre() %> <BR>
+		<BR >
+		</h2>
+	<div>
 		  
 	<div id="actualizarLayout">
 	</div> 
