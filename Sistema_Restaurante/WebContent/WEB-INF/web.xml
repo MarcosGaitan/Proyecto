@@ -19,6 +19,7 @@
     <welcome-file>terminarMesa.jsp</welcome-file>
     <welcome-file>liberarMesa.jsp</welcome-file>
     <welcome-file>vistaReporteEstadoSalon.jsp</welcome-file>
+    <welcome-file>vistaHistoricoVentas.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>IniciarSesion</servlet-name>
@@ -84,12 +85,20 @@
     <servlet-name>liberarMesa</servlet-name>
     <url-pattern>/liberarMesa</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>vistaReporteEstadoSalon</servlet-name>
     <servlet-class> controladores.ControladorReporteEstadoSalon</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>vistaReporteEstadoSalon</servlet-name>
     <url-pattern>/vistaReporteEstadoSalon</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>vistaHistoricoVentas</servlet-name>
+    <servlet-class> controladores.ControladorReporteVentas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>vistaHistoricoVentas</servlet-name>
+    <url-pattern>/vistaHistoricoVentas</url-pattern>
   </servlet-mapping>
 </web-app>

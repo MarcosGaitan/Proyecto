@@ -45,6 +45,9 @@ public class ComandaItemDao {
 			iniciaOperacion();
 			String hql = "From ComandaItem c order by c.idComandaItem";
 			lista = session.createQuery(hql).list();
+			for (ComandaItem ci : lista){
+				Hibernate.initialize(ci.getProducto());
+			}
 		}finally{
 			session.close();
 		}

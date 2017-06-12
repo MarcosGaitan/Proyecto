@@ -8,6 +8,7 @@ pageEncoding = "ISO-8859-1" %>
 	<meta http-equiv = "Content-Type" content = "text/html; charset=ISO-8859-1" >
 	<title >Sistema Restaurante </title >
 	<script type="text/JavaScript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css"/> 
 	<script type="text/javascript" >
 		$(document).ready(function(){
@@ -22,6 +23,18 @@ pageEncoding = "ISO-8859-1" %>
 				})
 			}
 			setInterval(cargarLayout,5000);
+			
+			$("#reporteVentas").click(function () {
+				$.ajax({	
+					type: "POST",
+					url: "vistaHistoricoVentas", 
+					data: "",
+					async: false 
+				}).done(function (data) {
+					$("#mostrarReporteVentas").html(data);
+					
+				});
+			});
 		})
 	</script>
 </head >
@@ -53,6 +66,15 @@ pageEncoding = "ISO-8859-1" %>
 	</div>
 
 	<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
+	
+	<div class = container>
+		<form class="navbar-form navbar-center">
+			<div class="form-group">
+				<INPUT id= "reporteVentas" type="button" class="btn btn-info" value="Ver Reporte de Ventas"  />
+			</div>
+		</form>
+	</div>
+	<div id = mostrarReporteVentas></div>
 	
 </BODY >
 </html >
