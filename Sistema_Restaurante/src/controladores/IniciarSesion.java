@@ -36,7 +36,7 @@ public class IniciarSesion extends HttpServlet {
 			request .setAttribute( "empleado" , empleado );
 			
 				if (empleado.getTipoEmpleado().getDescripcion().startsWith("Gerente")){
-					request .getRequestDispatcher( "/controlGerente.jsp" ).forward( request ,response );
+					request .getRequestDispatcher( "/ajaxControlGerente.jsp" ).forward( request ,response );
 					}
 				else if (empleado.getTipoEmpleado().getDescripcion().startsWith("Camarero")){
 					request.getRequestDispatcher("/controlCamarero.jsp").forward(request, response);

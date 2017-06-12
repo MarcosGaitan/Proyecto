@@ -30,6 +30,7 @@ public class ControladorEmitirPreticket  extends HttpServlet {
 			try {
 					
 			String idMesa = request.getParameter ( "idMesa" );
+			System.out.println("Llegue al controlador el id de mesa que traigo es"+idMesa);
 			long id = Long.parseLong(idMesa);
 			
 			MesaFinalABM mesaFinalABM= new MesaFinalABM ();
@@ -44,7 +45,7 @@ public class ControladorEmitirPreticket  extends HttpServlet {
 			request.setAttribute( "mesaFinal" , mesaFinal );
 			request.setAttribute("ticket", ticket);
 			
-			request .getRequestDispatcher( "/vistaPreTicket.jsp" ).forward( request ,response );
+			request .getRequestDispatcher( "/ajaxVistaPreTicket.jsp" ).forward( request ,response );
 			}
 			catch (Exception e) {
 				response.sendError(500, "no existe mesa final con esa clave. ERROR." );
