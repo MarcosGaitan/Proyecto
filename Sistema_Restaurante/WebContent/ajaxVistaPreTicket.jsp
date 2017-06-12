@@ -25,7 +25,7 @@
 	<BR>
 	<BR>Vista Preticket<BR>
 	<BR >
-		<table border=1 >
+		<table class="table table-striped table-bordered table-condensed ">
 			<tr >
 				<th > producto </th>
 				<th > precio </th >

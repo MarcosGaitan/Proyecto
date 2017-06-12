@@ -81,21 +81,6 @@ pageEncoding = "ISO-8859-1" %>
 	</div>
 	<div id = "mostrarPreticket"></div>
 	
-	
-<!-- 	<div>
-		<FORM method = "POST" action = "/Sistema_Restaurante/vistaPreTicket" >
-		<BR>  Generar PreTicket: <BR>
-		<TABLE>
-			<tr>
-				<td>Escribir id Mesa:</td><td><INPUT id="idMesa" name="idMesa"  maxlength="10" size="10"></td>
-				<td></td><td><INPUT id="preticket" type = "submit" value = "Generar" ></td></tr>	
-			</tr>
-		</TABLE>	
-		</form>
-	</div> -->
-
-	<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
-	
 	<div class = container>
 		<form class="navbar-form navbar-center">
 			<div class="form-group">
@@ -104,6 +89,6 @@ pageEncoding = "ISO-8859-1" %>
 		</form>
 	</div>
 	<div id = "mostrarReporteVentas"></div>
-	
+	<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
 </BODY >
 </html >
