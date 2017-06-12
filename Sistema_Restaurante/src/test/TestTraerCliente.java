@@ -12,19 +12,17 @@ public class TestTraerCliente {
 		
 		ClienteABM abm = new ClienteABM();
 		Cliente objeto= null;
-		List<Cliente> lista = null;
-		TipoClienteABM TCabm = new TipoClienteABM();
+		//List<Cliente> lista = null;
+		//TipoClienteABM TCabm = new TipoClienteABM();
 		try {
-			long id = 3;
-			objeto = abm.traerCliente(id);
+			int dni = 22222222;
+			objeto = abm.traerCliente(dni);
 			//FUNCIONA. Trae un cliente con sus datos de persona, pero no puedo conectar con "tipoCliente"
 			System.out.println(objeto.getNombre());
-			//TRAE EL CLIENTE, PERO SI QUIERO IMPRIMIR SU TIPO DE CLIENTE, SALEN ERRORES, YA NO SE SI SON DE 
-			//MAPEO, SI SON DE LOGICA O QUE MIERDA, ME CANSE CON ESTE.. SIGO DE LARGO.
 			//System.out.println("Cliente: "+x.getNombre()+" DNI: "+x.getDni()+" TipoCliente: "+x.getTipoCliente().getDescripcion());
 			
 			//---ACTUALIZACION FUNCIONAL. NO ESTOY SEGURO QUE ESTE BIEN. Mi idea no era usar 2 abm. mi idea era llegar a todos los datos desde el cliente.
-			System.out.println("Cliente: "+objeto.getNombre()+" DNI: "+objeto.getDni()+" TipoCliente: "+TCabm.traerTipoCliente(objeto.getTipoCliente().getIdTipoCliente()));   
+			//System.out.println("Cliente: "+objeto.getNombre()+" DNI: "+objeto.getDni()+" TipoCliente: "+TCabm.traerTipoCliente(objeto.getTipoCliente().getIdTipoCliente()));   
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());

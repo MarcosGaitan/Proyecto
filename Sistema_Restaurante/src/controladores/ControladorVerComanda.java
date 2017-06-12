@@ -32,22 +32,7 @@ public class ControladorVerComanda extends HttpServlet {
 				List<Comanda> comandas = abm.traerComandaEItems();
 				request.setAttribute("comandas", comandas);
 				request.getRequestDispatcher( "/vistaComandas.jsp" ).forward( request ,response );
-				
-				
-			/*String idMesaFinal = request.getParameter ( "idMesaFinal" );
-			long id = Long.parseLong(idMesaFinal);
-			
-			MesaFinalABM mesaFinalABM= new MesaFinalABM ();
-			TicketABM ticketABM = new TicketABM();
-			
-			MesaFinal mesaFinal = mesaFinalABM.traerMesaFinalyComandas(id);
-			Ticket ticket = ticketABM.GenerarPreticket(mesaFinal);
-			
-			
-			request.setAttribute( "mesaFinal" , mesaFinal );
-			request.setAttribute("ticket", ticket);
-			
-			request .getRequestDispatcher( "/vistaPreTicket.jsp" ).forward( request ,response );*/
+
 			}
 			catch (Exception e) {
 				response.sendError(500, "No hay Comandas. ERROR." );

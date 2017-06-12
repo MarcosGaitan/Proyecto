@@ -36,6 +36,20 @@ public class ClienteDao {
 		return objeto;
 	}
 	
+	public Cliente traerCliente(int dni){
+		//voy a hacer cagadas aca.
+		Cliente objeto = null;
+		
+			iniciaOperacion();
+			String hql = "From Cliente c where c.dni="+dni;
+			objeto = (Cliente) session.createQuery(hql).uniqueResult();
+		
+		
+			session.close();
+		
+		return objeto;
+	}
+	
 		
 	@SuppressWarnings("unchecked")
 	public List<Cliente> traerCliente() throws HibernateException

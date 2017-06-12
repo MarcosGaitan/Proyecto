@@ -90,6 +90,8 @@ public class ComandaDao {
 			iniciaOperacion();
 			objeto = (Comanda)session.get(Comanda.class, idComanda);
 			Hibernate.initialize(objeto.getComandaItems());
+			Hibernate.initialize(objeto.getMesaFinal());
+
 		}finally{
 			session.close();
 		}
@@ -102,11 +104,12 @@ public class ComandaDao {
 		try
 		{
 			iniciaOperacion();
-			String hql = "From Comanda c";
+			String hql = "From Comanda c order by c.idComanda";
 			lista = session.createQuery(hql).list();
 			Hibernate.initialize(lista);
 			for (Comanda c: lista){
 				Hibernate.initialize(c.getComandaItems());
+				Hibernate.initialize(c.getMesaFinal());
 				for(ComandaItem ci : c.getComandaItems()){
 					Hibernate.initialize(ci.getProducto());
 				}
