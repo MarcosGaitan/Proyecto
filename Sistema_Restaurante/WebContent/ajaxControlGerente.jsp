@@ -73,13 +73,13 @@ pageEncoding = "ISO-8859-1" %>
 				<TABLE>
 					<tr>
 						<td>Escribir id Mesa:</td><td><INPUT id="idMesa" name="idMesa"  maxlength="10" size="10"></td>
-						<td></td><td><INPUT id="preticket" type = "submit" value = "Generar" ></td></tr>	
+						<td></td><td><INPUT id="preticket" type = "button" value = "Generar" ></td></tr>	
 					</tr>
 				</TABLE>	
 			</div>
 		</form>
 	</div>
-	<div id = mostrarPreticket></div>
+	<div id = "mostrarPreticket"></div>
 	
 	
 <!-- 	<div>
@@ -103,7 +103,7 @@ pageEncoding = "ISO-8859-1" %>
 			</div>
 		</form>
 	</div>
-	<div id = mostrarReporteVentas></div>
+	<div id = "mostrarReporteVentas"></div>
 	
 </BODY >
 </html >
