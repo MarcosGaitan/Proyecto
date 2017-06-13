@@ -23,7 +23,7 @@ pageEncoding="ISO-8859-1"%>
 					<tr>
 						<td align="center"> <%= c.getIdComanda() %></td>
 						<td align="center"> <%= Funciones.traerFechaCorta(c.getFechaCreacion()) %> </td >
-						<td align="center"> <% if (c.getMesaFinal()!=null){ %>Mesa: <%= c.getMesaFinal().getNombre()  %><% }else{ %>Habitacion: <%= c.getHabitacion() %><%} %> </td >
+						<td align="center"> <% if (c.getMesaFinal()!=null){ %>Mesa: <%=c.getMesaFinal().getNombre() %><% }else if(c.getHabitacion()!=null){ %>Habitacion: <%= c.getHabitacion() %><%} else{ %>Para llevar<%}%> </td >
 						
 						<td>
 						<table border ="1">
@@ -41,8 +41,9 @@ pageEncoding="ISO-8859-1"%>
 									</tr> 
 								<% } %>	
 							<% } %>
+							
 							</table></td >
-						
+						<td><INPUT id="btnDanger" type="button" class="btn btn-danger" value = "Eliminar"></td>
 					</tr>
 					<%} %>
 				<% } %>

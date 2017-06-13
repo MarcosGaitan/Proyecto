@@ -10,7 +10,7 @@ pageEncoding = "ISO-8859-1" %>
 </style> 
 <body>
 	<div class = "container-fluid text-center bg-black ">
-		<TABLE border = "0" width = "100%" >	
+		<TABLE id="tableCabeza" name="caca" border = "0" width = "100%" >	
 				<TR >
 						<TD align = "left" >
 							<IMG src = "/Sistema_Restaurante/images/LogoUnla.png" >

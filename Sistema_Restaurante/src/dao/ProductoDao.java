@@ -46,11 +46,11 @@ public class ProductoDao {
 			iniciaOperacion();
 			String hql = "from Producto p ";	
 			lista = session.createQuery(hql).list();
-			for (Producto p : lista)
+			/*for (Producto p : lista)
 			{
 				Hibernate.initialize(p.getRubro());
 				Hibernate.initialize(p.getSubrubro());
-			}
+			}*/
 		}finally {
 			session.close();
 		}

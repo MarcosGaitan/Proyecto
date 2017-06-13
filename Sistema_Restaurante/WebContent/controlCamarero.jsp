@@ -1,17 +1,52 @@
 <%@page language = "java" contentType = "text/html; charset=ISO-8859-1"
 pageEncoding = "ISO-8859-1" %>
 <%@page import = "datos.Empleado" %>
+<%@page import = "datos.Producto" %>
+<%@page import = "java.util.List"%>
 <! DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd" >
 <html >
 <head >
 	<meta http-equiv = "Content-Type" content = "text/html; charset=ISO-8859-1" >
 	<title >Sistema Restaurante </title >
-	<%@include file = "/cabecera.jsp" %>
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<script type="text/javascript" >
 	$(document).ready(function () {
+		$("button").click(function()
+				   {
+				    // añadir nueva fila usando la funcion addTableRow
+				    addTableRow($("table"));
+				    // prevenir que el boton redireccione a una nueva pagina
+				    return false;
+				   });
+				  
+				   // funcion que añade una nueva fila a la tabla clonando la ultima fila e 
+				   // incrementando los nombres y los ids en 1 para hacerlos unicos en el documento
+				   function addTableRow(table)
+				   {
+				    // clonar la ultima fila de la tabla
+				    var $tr = $(table).find("tbody tr:last").clone();
+				    // obtener el atributo name para los inputs y selects
+				 	$tr.find("input:text").val("");
+				    $tr.find("input,select").attr("name", function()
+				    {
+				     //  separar el campo name y su numero en dos partes
+				     var parts = this.id.match(/(\D+)(\d+)$/);
+				     // crear un nombre nuevo para el nuevo campo incrementando el numero para los previos campos en 1
+				     return parts[1] + ++parts[2];
+				    // repetir los atributos ids
+				    }).attr("id", function(){
+				     var parts = this.id.match(/(\D+)(\d+)$/);
+				     return parts[1] + ++parts[2];
+				    });
+				    // añadir la nueva fila a la tabla
+				    $(table).find("tbody tr:last").after($tr);
+
+				};
+		
+		
+		//////////////////////////////////
 		$("#vercomandas").click(function () {
 			$.ajax({
 				type: "POST",
@@ -28,6 +63,8 @@ pageEncoding = "ISO-8859-1" %>
 	       if(estado==0) {
 	         $('#vAgregarComanda').slideUp('fast');
 	         estado=1;
+	         
+	         
 	      } else {
 	         $('#vAgregarComanda').slideDown('fast');
 	         estado=0;
@@ -86,7 +123,8 @@ pageEncoding = "ISO-8859-1" %>
 	 
 	</script>
 </head >
-<BODY style='allign:center'>
+<%@include file = "/cabecera.jsp" %>
+<body style='allign:center'>
 	
 	<h2>Bienvenido al Restaurante</h2>
 	
@@ -108,39 +146,65 @@ pageEncoding = "ISO-8859-1" %>
 	
 	<div id="responseComandas"></div>
 
-	<div class="container">
+	
 		<INPUT id="mostrarOcultarAC" type="button" class="btn btn-success" value = "Agregar Comanda">
 			<div style='display:none' id="vAgregarComanda" >
 			<FORM  method = "POST">
 			<br><br>
 				<table border = "1">
+					<tbody>
 					<tr>
-						<th > HABITACION </th>
+					  	<th> HABITACION </th>
 						<td><INPUT id="habitacion" name="habitacion"></td>
 						<td><INPUT id="checkBox2" onclick="ver2(this)" type="checkbox" name="checkbox" > No Habitacion </td>
 					</tr>
 					<tr >
-						<th > MESA FINAL </th>
+						<th> MESA FINAL </th>
 						<td><INPUT id="mesaFinal" name="mesaFinal"></td>
 						<td><INPUT id="checkBox3" onclick="ver3(this)" type="checkbox" name="checkbox" > No Mesa </td>
 					</tr >
 					<tr >
-						<th > DNI CLIENTE </th>
+						 <th> DNI CLIENTE </th>
 						<td><INPUT id="dni" name="dni"></td>
 						<td><INPUT id="checkBox1" onclick="ver(this)" type="checkbox" name="checkbox" > No Cliente </td>
 					</tr >
 					<tr >
-						<th > ID CAMARERO </th>
+						<th> ID CAMARERO </th>
 						<td><INPUT id="idCamarero" name="idCamarero" value="<%= empleado.getIdPersona() %>" disabled></td>
-					</tr >			
+					</tr >	
+					<tr>
+						<td > PRODUCTO </td>
+						<td > CANTIDAD </td>
+					</tr>
+					<tr>
+						<td>
+							<select name="select1"  id="select1">
+								<option value="0">Seleccione un producto</option>
+								<%List<Producto> lista =(List<Producto>)request.getAttribute("productos");
+								//ORDENAR LISTA.
+									for(Producto p: lista){%>
+									<option value="<%=p.getIdProducto()%>"><%= p.getNombre() %></option>
+								<% } %>
+							</select>
+						</td>
+						<td>
+							<INPUT id="cantidad1" name="cantidad1">
+						</td>
+					</tr>
+				</tbody>	
+				
 				</table>
+				<button>Agregar Fila</button>
+					
+
 				<br>
 				<INPUT id="agregarComanda" type = "button" class="btn btn-success" value="Agregar" />
 			</FORM>
-			</div >
+			
+			
 		<div id="responseAgregarComanda"></div>
 	</div>	
-
+	<br>
 	<!--
 	<div>
 		<FORM method = "POST" action = "/Sistema_Restaurante/anularComanda">
