@@ -12,15 +12,15 @@ public class TestTraerPrecioTipoCliente {
 	public static void main(String[] args) {
 		
 		PrecioTipoClienteABM abm = new PrecioTipoClienteABM();
-		PrecioTipoCliente  tc = null;
+		PrecioTipoCliente  te = null;
 		List<PrecioTipoCliente> lista = null;
 		
 		try {
 			long id = 1;
-			tc = abm.traerPrecioTipoCliente(id);
+			te = abm.traerPrecioTipoCliente(id);
 			System.out.println("\n ***precio individual de un objeto *** \n ");
-			System.out.println("id: " + tc.getItemListaPrecio().getIdItemListaPrecio() + "\n" +"precio: " + tc.getPrecio());
-			System.out.println("tipo de Cliente: " + tc.getTipoCliente().getDescripcion());
+			System.out.println("id: " + te.getItemListaPrecio().getIdItemListaPrecio() + "\n" +"precio: " + te.getPrecio());
+			System.out.println("tipo de Cliente: " + te.getTipoCliente().getDescripcion());
 			System.out.println("\n ************************* \n ");
 			
 		}

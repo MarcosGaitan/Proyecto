@@ -47,7 +47,7 @@ public class ControladorAgregarComanda extends HttpServlet {
 				long mesaFinal = Long.parseLong(mf);
 				
 				String habitacion = request.getParameter("habitacion");
-				if(habitacion=="0") habitacion=null;
+				
 				String idC = request.getParameter("idCamarero");
 				long idCamarero = Long.parseLong( idC );
 				
