@@ -8,8 +8,13 @@ pageEncoding = "ISO-8859-1" %>
       background-color: #000000;
  }
 </style> 
-<body>
-	<div class = "container-fluid text-center bg-black ">
+<div align="center" class = "container-fluid text-center bg-black ">
+	<div></div>
+	<IMG align="left" src = "/Sistema_Restaurante/images/LogoUnla.png" >
+	<h1 style="color:white;" align="center">Orientacion a Objetos 2</h1>
+	</div>
+</div>
+<!--   <div class = "container-fluid text-center bg-black ">
 		<TABLE border = "0" width = "100%" >	
 				<TR >
 						<TD align = "left" >
@@ -20,6 +25,6 @@ pageEncoding = "ISO-8859-1" %>
 					</TD >
 				</TR >
 		</TABLE >
-	</div>
-</body>
+</div>
+-->
 
