@@ -114,88 +114,16 @@ pageEncoding = "ISO-8859-1" %>
 		<%= empleado.getNombre() %> <BR>
 	<BR >
 	
-	
-	<div class="container" >
-		<form class="navbar-form navbar-left">	
-			<div class="form-group">	
-					<INPUT id="vercomandas" type="button" class="btn btn-success" value = "Ver Comandas">
-			</div>
-		</form >
-	</div>	
+	<div class="btn-group btn-group-justified">
+  		<A id="vercomandas" class="btn btn-primary">Ver Comandas</a>
+  		<a id="agregarcomandas"  class="btn btn-primary" >Agregar Comanda</a>
+	</div>
+
 	
 	<div id="responseComandas"></div>
+	<div id="responseAgregarComanda"></div> <!--  Quizas con uno me alcanza -->
 
-	<div class="container">
-		<INPUT id="mostrarOcultarAC" type="button" class="btn btn-success" value = "Agregar Comanda">
-			<div style='display:none' id="vAgregarComanda" >
-			<FORM  method = "POST">
-			<br><br>
-				<table id="tablal"  name="tablal" border = "1">
-					<tbody>
-					<tr>
-					  	<th> HABITACION </th>
-						<td><INPUT id="habitacion" name="habitacion"></td>
-						<td><INPUT id="checkBox2" onclick="ver2(this)" type="checkbox" name="checkbox" > No Habitacion </td>
-					</tr>
-					<tr >
-						<th> MESA FINAL </th>
-						<td><INPUT id="mesaFinal" name="mesaFinal"></td>
-						<td><INPUT id="checkBox3" onclick="ver3(this)" type="checkbox" name="checkbox" > No Mesa </td>
-					</tr >
-					<tr >
-						 <th> DNI CLIENTE </th>
-						<td><INPUT id="dni" name="dni"></td>
-						<td><INPUT id="checkBox1" onclick="ver(this)" type="checkbox" name="checkbox" > No Cliente </td>
-					</tr >
-					<tr >
-						<th> ID CAMARERO </th>
-						<td><INPUT id="idCamarero" name="idCamarero" value="<%= empleado.getIdPersona() %>" disabled></td>
-					</tr >	
-					<tr>
-						<th > PRODUCTO </th>
-						<th > CANTIDAD </th>
-					</tr>
-					<tr>
-						<td>
-							<select id="select1" name="select1"  >
-								<option value="0">Seleccione un producto</option>
-								<%List<Producto> lista =(List<Producto>)request.getAttribute("productos");
-								//ORDENAR LISTA.
-									for(Producto p: lista){%>
-									<option value="<%=p.getIdProducto()%>"><%= p.getNombre() %></option>
-								<% } %>
-							</select>
-						</td>
-						<td>
-							<INPUT id="cantidad1" name="cantidad1">
-						</td>
-						
-						<td align="center" class="eliminar">Eliminar</td>
-						
-						
-					</tr>
-				</tbody>	
-				
-				</table>
-				<input type="button" id="agregar" value="Agregar fila" />
-				
-
-				<br>
-				<INPUT id="agregarComanda" type = "button" class="btn btn-success" value="Agregar" />
-			</FORM>
-			
-			</div >
-		<div id="responseAgregarComanda"></div>
-	</div>	
-
-	<!--
-	<div>
-		<FORM method = "POST" action = "/Sistema_Restaurante/anularComanda">
-					<INPUT type = "submit" value = "Anular Comanda" >
-		</FORM >				
-	</div>
-	 -->
-	<A href = "/Sistema_Restaurante/index.jsp" > Inicio </A >
+	<A href = "/Sistema_Restaurante/index.jsp"><BUTTON>volver</BUTTON> </A>
 	
 </BODY >
 </html >

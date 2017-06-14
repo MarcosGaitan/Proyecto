@@ -6,5 +6,5 @@ pageEncoding="ISO-8859-1"%>
 <%@page import = "datos.Producto" %>
 <%@page import = "java.util.List" %>
 	<br>
-	<img align="middle" src="/Sistema_Restaurante/images/comandaEliminada.jpg">
+	<img src="/Sistema_Restaurante/images/comandaEliminada.jpg" style='position:relative; top:  10px; left: 40%;'>
 	<BR ><BR ><BR >
