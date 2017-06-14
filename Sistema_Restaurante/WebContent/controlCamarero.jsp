@@ -122,8 +122,9 @@ pageEncoding = "ISO-8859-1" %>
 	
 	<div id="responseComandas"></div>
 	<div id="responseAgregarComanda"></div> <!--  Quizas con uno me alcanza -->
-
-	<A href = "/Sistema_Restaurante/index.jsp"><BUTTON>volver</BUTTON> </A>
+	
+	<br><br>
+	<A href = "/Sistema_Restaurante/index.jsp"><BUTTON>Log Out</BUTTON> </A>
 	
 </BODY >
 </html >

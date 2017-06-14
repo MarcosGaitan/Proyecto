@@ -19,25 +19,38 @@ function borrar(event, idComanda){
 	}).done(function (data) {
 		$("#responseComandas").html(data);
 		
-	})
-	
+	})	
+}
+
+function ConfirmDemo(event, idComanda) {
+	//Ingresamos un mensaje a mostrar
+	var mensaje = confirm("¿Desea eliminar la Comanda: "+idComanda+" ?");
+	//Detectamos si el usuario acepto el mensaje
+	if (mensaje) {
+		borrar(event, idComanda)
+	}
 }
 </script>	
 	<% List <Comanda> comandas = (List <Comanda>)request.getAttribute("comandas"); %>
-	<BR>Vista Comandas: <BR>
+
 	<BR >
 		
-		<table border = "1">
+		<table border = "1" style='position:relative; top:10px; left:20%;'>
+			<tr>
+				<td align="center" colspan="4"> <b>MOSTRAR COMANDAS</b></td>
+			</tr>
 			<tr >
-				<th > Comanda ID </th>
-				<th > Fecha Creacion </th >
-				<th > Destino </th >
-				<th > ITEMS </th >
+				<td align="center"> <b>Comanda ID </b></td>
+				<td align="center"><b> Fecha Creacion </b></td >
+				<td align="center"><b> Destino </b></td >
+				<td align="center"><b> ITEMS </b></td >
 			</tr >		
 			<% for(Comanda c : comandas) {%>
 			
 				<% if (c.isAnulada()==false){ %>
+				
 					<tr>
+						
 						<td align="center"> <%= c.getIdComanda() %></td>
 						<td align="center"> <%= Funciones.traerFechaCorta(c.getFechaCreacion()) %> </td >
 						<td align="center"> <% if (c.getMesaFinal()!=null){ %>Mesa: <%=c.getMesaFinal().getNombre() %><% }else if(c.getHabitacion()!=null){ %>Habitacion: <%= c.getHabitacion() %><%} else{ %>Para llevar<%}%> </td >
@@ -61,7 +74,7 @@ function borrar(event, idComanda){
 							
 							</table></td >
 							
-						<td><button onClick="borrar(event,<%=c.getIdComanda()%>)">ELIMINAR</button></td> 
+						<td><button class="btn btn-danger" onClick="ConfirmDemo(event,<%=c.getIdComanda()%>)">ELIMINAR</button></td> 
 					</tr>
 					<%} %>
 				<% } %>
