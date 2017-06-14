@@ -2,7 +2,10 @@ package negocio;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
+
 import dao.ComandaDao;
+import datos.Cliente;
 import datos.Comanda;
 import datos.Producto;
 
@@ -38,6 +41,13 @@ public class ComandaABM {
 		return comanda;
 	}
 	
-	
+	public void eliminarComanda(long idComanda) throws Exception{
+		Comanda comanda= dao.traerComanda(idComanda);
+		
+		if (comanda==null) {
+			throw new Exception("No existe Comanda con ID: "+idComanda);
+		}
+		dao.eliminar(comanda);
+	}
 	
 }

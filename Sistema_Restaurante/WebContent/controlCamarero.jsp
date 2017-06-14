@@ -20,46 +20,6 @@ pageEncoding = "ISO-8859-1" %>
  		</style>
 	<script type="text/javascript" >
 	$(document).ready(function () {
-		var veces=0;
-		$("button").click(function()
-				   {
-				    // añadir nueva fila usando la funcion addTableRow
-				    addTableRow($("table"));
-				    // prevenir que el boton redireccione a una nueva pagina
-				    return false;
-				   });
-				  
-				   // funcion que añade una nueva fila a la tabla clonando la ultima fila e 
-				   // incrementando los nombres y los ids en 1 para hacerlos unicos en el documento
-				   function addTableRow(table)
-				   {
-				    // clonar la ultima fila de la tabla
-				    var $tr = $(table).find("tbody tr:last").clone();
-				    // obtener el atributo name para los inputs y selects
-				 	$tr.find("input:text").val("");
-				    $tr.find("input,select").attr("name", function()
-				    {
-				     //  separar el campo name y su numero en dos partes
-				     var parts = this.id.match(/(\D+)(\d+)$/);
-				     // crear un nombre nuevo para el nuevo campo incrementando el numero para los previos campos en 1
-				     return parts[1] + ++parts[2];
-				    // repetir los atributos ids
-				    }).attr("id", function(){
-				     var parts = this.id.match(/(\D+)(\d+)$/);
-				     return parts[1] + ++parts[2];
-				    });
-				    // añadir la nueva fila a la tabla
-				    $(table).find("tbody tr:last").after($tr);
-					veces=veces+1
-				};
-				
-				$(document).on("click",".eliminar",function(){
-					var parent = $(this).parents().get(0);
-					if(veces>0){
-						$(parent).remove();
-						veces=veces-1;
-					}
-				});
 		//////////////////////////////////
 		$("#vercomandas").click(function () {
 			$.ajax({
@@ -93,47 +53,53 @@ pageEncoding = "ISO-8859-1" %>
 
 			$.ajax({
 				type: "POST",
-				data: {mesaFinal: mesaFinal, habitacion: habitacion, idCamarero: idCamarero, dni:dni},
+				data: {mesaFinal: mesaFinal, habitacion: habitacion, idCamarero: idCamarero, dni:dni, },
 				url: "vistaComandaAgregada",
 				async: false
 			}).done(function (data) {
 				$("#responseAgregarComanda").html(data);
 			})
 		});
+	    
+		function ver(chk) {
+			  obj=chk.form;
+			  obj.dni.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
+			  if (chk.checked) {
+				 
+			    obj.dni.value='0';
+			  }
+			  else{
+				  obj.dni.value='';  
+			  }
+			}
+		function ver2(chk) {
+			  obj=chk.form;
+			  obj.habitacion.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
+			  if (chk.checked) {
+				 
+			    obj.habitacion.value='0';
+			  }
+			  else{
+				  obj.habitacion.value='';  
+			  }
+			}
+		function ver3(chk) {
+			  obj=chk.form;
+			  obj.mesaFinal.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
+			  if (chk.checked) {
+				 
+			    obj.mesaFinal.value='0';
+			  }
+			  else{
+				  obj.mesaFinal.value='';  
+			  }
+			}
+
 });
-	function ver(chk) {
-		  obj=chk.form;
-		  obj.dni.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-		  if (chk.checked) {
-			 
-		    obj.dni.value='0';
-		  }
-		  else{
-			  obj.dni.value='';  
-		  }
-		}
-	function ver2(chk) {
-		  obj=chk.form;
-		  obj.habitacion.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-		  if (chk.checked) {
-			 
-		    obj.habitacion.value='0';
-		  }
-		  else{
-			  obj.habitacion.value='';  
-		  }
-		}
-	function ver3(chk) {
-		  obj=chk.form;
-		  obj.mesaFinal.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-		  if (chk.checked) {
-			 
-		    obj.mesaFinal.value='0';
-		  }
-		  else{
-			  obj.mesaFinal.value='';  
-		  }
-		}
+	
+	
+
+	
 	 
 	</script>
 </head >
@@ -164,7 +130,7 @@ pageEncoding = "ISO-8859-1" %>
 			<div style='display:none' id="vAgregarComanda" >
 			<FORM  method = "POST">
 			<br><br>
-				<table border = "1">
+				<table id="tablal"  name="tablal" border = "1">
 					<tbody>
 					<tr>
 					  	<th> HABITACION </th>
@@ -191,7 +157,7 @@ pageEncoding = "ISO-8859-1" %>
 					</tr>
 					<tr>
 						<td>
-							<select name="select1"  id="select1">
+							<select id="select1" name="select1"  >
 								<option value="0">Seleccione un producto</option>
 								<%List<Producto> lista =(List<Producto>)request.getAttribute("productos");
 								//ORDENAR LISTA.
@@ -211,8 +177,8 @@ pageEncoding = "ISO-8859-1" %>
 				</tbody>	
 				
 				</table>
-				<button>Agregar Fila</button>
-					
+				<input type="button" id="agregar" value="Agregar fila" />
+				
 
 				<br>
 				<INPUT id="agregarComanda" type = "button" class="btn btn-success" value="Agregar" />

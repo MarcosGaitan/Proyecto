@@ -20,6 +20,8 @@
     <welcome-file>liberarMesa.jsp</welcome-file>
     <welcome-file>vistaReporteEstadoSalon.jsp</welcome-file>
     <welcome-file>vistaHistoricoVentas.jsp</welcome-file>
+    <welcome-file>vistacontrolCamarero.jsp</welcome-file>
+    <welcome-file>vistaEliminarComandas.jsp</welcome-file>
   </welcome-file-list>
   
   <servlet>
@@ -110,4 +112,13 @@
     <servlet-name>vistaAgregarComanda</servlet-name>
     <url-pattern>/vistaComandaAgregada</url-pattern>
   </servlet-mapping>
+  <servlet>
+  <servlet-name>vistaEliminarComandas</servlet-name>
+    <servlet-class> controladores.ControladorEliminarComanda</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>vistaEliminarComandas</servlet-name>
+    <url-pattern>/vistaEliminarComandas</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

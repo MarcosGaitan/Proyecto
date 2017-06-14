@@ -49,6 +49,7 @@ public class ComandaDao {
 		try{
 			iniciaOperacion();
 			objeto = (Comanda)session.get(Comanda.class, idComanda);
+			Hibernate.initialize(objeto.getComandaItems());
 		}
 		finally{
 			session.close();

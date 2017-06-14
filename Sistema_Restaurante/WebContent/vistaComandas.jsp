@@ -6,6 +6,23 @@ pageEncoding="ISO-8859-1"%>
 <%@page import = "datos.Producto" %>
 <%@ page import = "java.util.List" %>
 
+<script type="text/javascript">
+
+function borrar(event, idComanda){
+    event.preventDefault(); 
+    console.log("HHHH");
+    $.ajax({
+		type: "POST",
+		data: {idComanda: idComanda},
+		url: "vistaEliminarComandas",
+		async: false
+	}).done(function (data) {
+		$("#responseComandas").html(data);
+		
+	})
+	
+}
+</script>	
 	<% List <Comanda> comandas = (List <Comanda>)request.getAttribute("comandas"); %>
 	<BR>Vista Comandas: <BR>
 	<BR >
@@ -26,6 +43,7 @@ pageEncoding="ISO-8859-1"%>
 						<td align="center"> <% if (c.getMesaFinal()!=null){ %>Mesa: <%=c.getMesaFinal().getNombre() %><% }else if(c.getHabitacion()!=null){ %>Habitacion: <%= c.getHabitacion() %><%} else{ %>Para llevar<%}%> </td >
 						
 						<td>
+						
 						<table border ="1">
 							<tr >
 								<th > Producto </th>
@@ -34,18 +52,22 @@ pageEncoding="ISO-8859-1"%>
 							
 							<%if(c.getComandaItems()!=null){ %>	
 								<% for(ComandaItem ci : c.getComandaItems()) {%>
-									<tr >
+									<tr>
 									<td align="center"> <%=  ci.getProducto().getNombre() %> </td> 
 									<td align="center"> <%=  ci.getCantidad() %> </td> 
-									
 									</tr> 
 								<% } %>	
 							<% } %>
 							
 							</table></td >
-						<td><INPUT id="btnDanger" type="button" class="btn btn-danger" value = "Eliminar"></td>
+							
+						<td><button onClick="borrar(event,<%=c.getIdComanda()%>)">ELIMINAR</button></td> 
 					</tr>
 					<%} %>
 				<% } %>
+				
 			</table >
+			
+			
+			
 	<BR >
