@@ -29,72 +29,20 @@ pageEncoding = "ISO-8859-1" %>
 				async: false
 			}).done(function (data) {
 				$("#responseComandas").html(data);
-			})
+			});
 		});
 
-		estado=1;                         
-	    $("#mostrarOcultarAC").click(function () { 
-	       if(estado==0) {
-	         $('#vAgregarComanda').slideUp('fast');
-	         estado=1;
-	         
-	         
-	      } else {
-	         $('#vAgregarComanda').slideDown('fast');
-	         estado=0;
-	      }
-	    });
-
-	    $("#agregarComanda").click(function () {
-	    	var habitacion = $('#habitacion').val();
-	    	var mesaFinal = $('#mesaFinal').val();
-	    	var dni = $('#dni').val();
-	    	var idCamarero = $('#idCamarero').val();
-
-			$.ajax({
+	    $("#agregarcomandas").click(function () {
+	    	
+	    	$.ajax({
 				type: "POST",
-				data: {mesaFinal: mesaFinal, habitacion: habitacion, idCamarero: idCamarero, dni:dni, },
-				url: "vistaComandaAgregada",
+				data: "",
+				url: "vistaAgregarComanda",
 				async: false
 			}).done(function (data) {
-				$("#responseAgregarComanda").html(data);
-			})
+				$("#responseComandas").html(data);
+			});
 		});
-	    
-		function ver(chk) {
-			  obj=chk.form;
-			  obj.dni.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-			  if (chk.checked) {
-				 
-			    obj.dni.value='0';
-			  }
-			  else{
-				  obj.dni.value='';  
-			  }
-			}
-		function ver2(chk) {
-			  obj=chk.form;
-			  obj.habitacion.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-			  if (chk.checked) {
-				 
-			    obj.habitacion.value='0';
-			  }
-			  else{
-				  obj.habitacion.value='';  
-			  }
-			}
-		function ver3(chk) {
-			  obj=chk.form;
-			  obj.mesaFinal.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-			  if (chk.checked) {
-				 
-			    obj.mesaFinal.value='0';
-			  }
-			  else{
-				  obj.mesaFinal.value='';  
-			  }
-			}
-
 });
 	
 	
@@ -104,25 +52,19 @@ pageEncoding = "ISO-8859-1" %>
 	</script>
 </head >
 <BODY style='allign:center'>
-	
-	<h2>Bienvenido al Restaurante</h2>
-	
 	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
-	<BR >
-		 Bienvenido <%empleado.getTipoEmpleado().getDescripcion(); %>: 
-		<%= empleado.getApellido() %>
-		<%= empleado.getNombre() %> <BR>
+	<h2>Bienvenido al Restaurante: <%= empleado.getApellido() %> <%= empleado.getNombre() %></h2>
+		
+		 <BR>
 	<BR >
 	
 	<div class="btn-group btn-group-justified">
   		<A id="vercomandas" class="btn btn-primary">Ver Comandas</a>
-  		<a id="agregarcomandas"  class="btn btn-primary" >Agregar Comanda</a>
+  		<A id="agregarcomandas"  class="btn btn-primary" >Agregar Comanda</a>
 	</div>
 
 	
 	<div id="responseComandas"></div>
-	<div id="responseAgregarComanda"></div> <!--  Quizas con uno me alcanza -->
-	
 	<br><br>
 	<A href = "/Sistema_Restaurante/index.jsp"><BUTTON>Log Out</BUTTON> </A>
 	

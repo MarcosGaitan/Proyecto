@@ -72,7 +72,7 @@ pageEncoding = "ISO-8859-1" %>
 				<BR>  Generar PreTicket: <BR>
 				<TABLE>
 					<tr>
-						<td>Escribir id Mesa:</td><td><INPUT id="idMesa" name="idMesa"  maxlength="10" size="10"></td>
+						<td>Escribir Nro Mesa:</td><td><INPUT id="idMesa" name="idMesa"  maxlength="10" size="10"></td>
 						<td></td><td><INPUT id="preticket" type = "button" value = "Generar" ></td></tr>	
 					</tr>
 				</TABLE>	
@@ -89,6 +89,6 @@ pageEncoding = "ISO-8859-1" %>
 		</form>
 	</div>
 	<div id = "mostrarReporteVentas"></div>
-	<A href = "/Sistema_Restaurante/index.jsp" > Cerrar Sesion </A >
+	<div><A href = "/Sistema_Restaurante/index.jsp" > Cerrar Sesion </A ></div>
 </BODY >
 </html >

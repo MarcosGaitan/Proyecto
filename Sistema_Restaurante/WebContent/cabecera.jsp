@@ -12,8 +12,9 @@ pageEncoding = "ISO-8859-1" %>
 	<div></div>
 	<IMG align="left" src = "/Sistema_Restaurante/images/LogoUnla.png" >
 	<h1 style="color:white;" align="center">Orientacion a Objetos 2</h1>
-	</div>
 </div>
+
+
 <!--   <div class = "container-fluid text-center bg-black ">
 		<TABLE border = "0" width = "100%" >	
 				<TR >

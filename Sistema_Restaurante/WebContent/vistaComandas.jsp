@@ -22,7 +22,7 @@ function borrar(event, idComanda){
 	})	
 }
 
-function ConfirmDemo(event, idComanda) {
+function ConfirmEliminar(event, idComanda) {
 	//Ingresamos un mensaje a mostrar
 	var mensaje = confirm("¿Desea eliminar la Comanda: "+idComanda+" ?");
 	//Detectamos si el usuario acepto el mensaje
@@ -53,7 +53,7 @@ function ConfirmDemo(event, idComanda) {
 						
 						<td align="center"> <%= c.getIdComanda() %></td>
 						<td align="center"> <%= Funciones.traerFechaCorta(c.getFechaCreacion()) %> </td >
-						<td align="center"> <% if (c.getMesaFinal()!=null){ %>Mesa: <%=c.getMesaFinal().getNombre() %><% }else if(c.getHabitacion()!=null){ %>Habitacion: <%= c.getHabitacion() %><%} else{ %>Para llevar<%}%> </td >
+						<td align="center"> <% if (c.getMesaFinal()!=null){ %>Mesa: <%=c.getMesaFinal().getNombre() %><% }else{ %>Habitacion: <%= c.getHabitacion() %><%}%> </td >
 						
 						<td>
 						
@@ -74,7 +74,7 @@ function ConfirmDemo(event, idComanda) {
 							
 							</table></td >
 							
-						<td><button class="btn btn-danger" onClick="ConfirmDemo(event,<%=c.getIdComanda()%>)">ELIMINAR</button></td> 
+						<td><button class="btn btn-danger" onClick="ConfirmEliminar(event,<%=c.getIdComanda()%>)">ELIMINAR</button></td> 
 					</tr>
 					<%} %>
 				<% } %>

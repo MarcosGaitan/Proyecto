@@ -30,7 +30,6 @@ public class ControladorEmitirPreticket  extends HttpServlet {
 			try {
 					
 			String idMesa = request.getParameter ( "idMesa" );
-			System.out.println("Llegue al controlador el id de mesa que traigo es"+idMesa);
 			long id = Long.parseLong(idMesa);
 			
 			MesaFinalABM mesaFinalABM= new MesaFinalABM ();
