@@ -89,6 +89,6 @@ pageEncoding = "ISO-8859-1" %>
 		</form>
 	</div>
 	<div id = "mostrarReporteVentas"></div>
-	<A href = "/Sistema_Restaurante/index.jsp" > Volver... </A >
+	<A href = "/Sistema_Restaurante/index.jsp" > Cerrar Sesion </A >
 </BODY >
 </html >
