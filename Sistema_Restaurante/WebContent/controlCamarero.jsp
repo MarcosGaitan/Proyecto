@@ -1,6 +1,8 @@
 <%@page language = "java" contentType = "text/html; charset=ISO-8859-1"
 pageEncoding = "ISO-8859-1" %>
 <%@page import = "datos.Empleado" %>
+<%@page import = "datos.Producto" %>
+<%@page import = "java.util.List"%>
 <! DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd" >
 <html >
@@ -10,8 +12,15 @@ pageEncoding = "ISO-8859-1" %>
 	<%@include file = "/cabecera.jsp" %>
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<style type="text/css">
+			#tabla{	border: solid 1px #333;	width: 300px; }
+			#tabla tbody tr{ background: #999; }
+			.eliminar{ cursor: pointer; color: #000; }
+			input[type="text"]{ width: 80px; } /* ancho a los elementos input="text" */
+ 		</style>
 	<script type="text/javascript" >
 	$(document).ready(function () {
+		//////////////////////////////////
 		$("#vercomandas").click(function () {
 			$.ajax({
 				type: "POST",
@@ -20,135 +29,44 @@ pageEncoding = "ISO-8859-1" %>
 				async: false
 			}).done(function (data) {
 				$("#responseComandas").html(data);
-			})
+			});
 		});
 
-		estado=1;                         
-	    $("#mostrarOcultarAC").click(function () { 
-	       if(estado==0) {
-	         $('#vAgregarComanda').slideUp('fast');
-	         estado=1;
-	      } else {
-	         $('#vAgregarComanda').slideDown('fast');
-	         estado=0;
-	      }
-	    });
-
-	    $("#agregarComanda").click(function () {
-	    	var habitacion = $('#habitacion').val();
-	    	var mesaFinal = $('#mesaFinal').val();
-	    	var dni = $('#dni').val();
-	    	var idCamarero = $('#idCamarero').val();
-
-			$.ajax({
+	    $("#agregarcomandas").click(function () {
+	    	
+	    	$.ajax({
 				type: "POST",
-				data: {mesaFinal: mesaFinal, habitacion: habitacion, idCamarero: idCamarero, dni:dni},
-				url: "vistaComandaAgregada",
+				data: "",
+				url: "vistaAgregarComanda",
 				async: false
 			}).done(function (data) {
-				$("#responseAgregarComanda").html(data);
-			})
+				$("#responseComandas").html(data);
+			});
 		});
 });
-	function ver(chk) {
-		  obj=chk.form;
-		  obj.dni.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-		  if (chk.checked) {
-			 
-		    obj.dni.value='0';
-		  }
-		  else{
-			  obj.dni.value='';  
-		  }
-		}
-	function ver2(chk) {
-		  obj=chk.form;
-		  obj.habitacion.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-		  if (chk.checked) {
-			 
-		    obj.habitacion.value='0';
-		  }
-		  else{
-			  obj.habitacion.value='';  
-		  }
-		}
-	function ver3(chk) {
-		  obj=chk.form;
-		  obj.mesaFinal.style.visibility = (chk.checked) ? 'hidden': 'visible' ;
-		  if (chk.checked) {
-			 
-		    obj.mesaFinal.value='0';
-		  }
-		  else{
-			  obj.mesaFinal.value='';  
-		  }
-		}
+	
+	
+
+	
 	 
 	</script>
 </head >
 <BODY style='allign:center'>
-	
-	<h2>Bienvenido al Restaurante</h2>
-	
 	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
-	<BR >
-		 Bienvenido <%empleado.getTipoEmpleado().getDescripcion(); %>: 
-		<%= empleado.getApellido() %>
-		<%= empleado.getNombre() %> <BR>
+	<h2>Bienvenido al Restaurante: <%= empleado.getApellido() %> <%= empleado.getNombre() %></h2>
+		
+		 <BR>
 	<BR >
 	
-	
-	<div class="container" >
-		<form class="navbar-form navbar-left">	
-			<div class="form-group">	
-					<INPUT id="vercomandas" type="button" class="btn btn-success" value = "Ver Comandas">
-			</div>
-		</form >
-	</div>	
+	<div class="btn-group btn-group-justified">
+  		<A id="vercomandas" class="btn btn-primary">Ver Comandas</a>
+  		<A id="agregarcomandas"  class="btn btn-primary" >Agregar Comanda</a>
+	</div>
+
 	
 	<div id="responseComandas"></div>
-
-	<div class="container">
-		<INPUT id="mostrarOcultarAC" type="button" class="btn btn-success" value = "Agregar Comanda">
-			<div style='display:none' id="vAgregarComanda" >
-			<FORM  method = "POST">
-			<br><br>
-				<table border = "1">
-					<tr>
-						<th > HABITACION </th>
-						<td><INPUT id="habitacion" name="habitacion"></td>
-						<td><INPUT id="checkBox2" onclick="ver2(this)" type="checkbox" name="checkbox" > No Habitacion </td>
-					</tr>
-					<tr >
-						<th > MESA FINAL </th>
-						<td><INPUT id="mesaFinal" name="mesaFinal"></td>
-						<td><INPUT id="checkBox3" onclick="ver3(this)" type="checkbox" name="checkbox" > No Mesa </td>
-					</tr >
-					<tr >
-						<th > DNI CLIENTE </th>
-						<td><INPUT id="dni" name="dni"></td>
-						<td><INPUT id="checkBox1" onclick="ver(this)" type="checkbox" name="checkbox" > No Cliente </td>
-					</tr >
-					<tr >
-						<th > ID CAMARERO </th>
-						<td><INPUT id="idCamarero" name="idCamarero" value="<%= empleado.getIdPersona() %>" disabled></td>
-					</tr >			
-				</table>
-				<br>
-				<INPUT id="agregarComanda" type = "button" class="btn btn-success" value="Agregar" />
-			</FORM>
-			</div >
-		<div id="responseAgregarComanda"></div>
-	</div>	
-
-	<!--
-	<div>
-		<FORM method = "POST" action = "/Sistema_Restaurante/anularComanda">
-					<INPUT type = "submit" value = "Anular Comanda" >
-		</FORM >				
-	</div>
-	 -->
-	<A href = "/Sistema_Restaurante/index.jsp" > Inicio </A >
+	<br><br>
+	<A href = "/Sistema_Restaurante/index.jsp"><BUTTON>Log Out</BUTTON> </A>
 	
 </BODY >
 </html >

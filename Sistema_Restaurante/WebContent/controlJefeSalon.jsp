@@ -54,7 +54,12 @@
 	</script> 
 </head>
 <body>	
-	<%@include file = "/cabecera.jsp" %> 
+	<%@include file = "/cabecera.jsp" %>
+	<div class = "container">
+		<nav class = "navbar navbar-right">
+			<div><a href = "/Sistema_Restaurante/index.jsp" class="btn btn-primary" href="#" role="button"> Cerrar Sesion</a>	</div>
+		</nav>
+	</div> 
 	<%Empleado empleado=(Empleado)request.getAttribute( "empleado" ); %>
 	<br>
 	<div class = "container" >
@@ -64,7 +69,7 @@
 			<%= empleado.getNombre() %> <BR>
 		<BR >
 		</h2>
-	<div>
+	</div>
 		  
 	<div id="actualizarLayout">
 	</div> 
@@ -84,7 +89,7 @@
 	
 	<div id = "verReporte" >
 	</div>
-	
-</body>
+
+</body> 
 </html>
 

@@ -1,0 +1,70 @@
+Lista de casos de uso:
+-pintar los realizados 
+	* falta
+
+-decir quien lo hizo
+	*falta
+
+tabla Bebidas:
+- en ves de "litros" va "unidad".
+|Bebidas  |
+-----------
+|-cantidad|
+|-unidad  |
+-----------
+	*LISTO
+
+-PlatoIngrediente no encapsula Plato.
+	* Si no encapsula plato no se como asignarle el ingrediente a ese plato, quizas con una tabla "Receta" que guarde los ingredientes
+
+-En ingrediente falta agregar "unidad".   
+	*LISTO
+
+-Resolver conversion de Unidades.  
+	* falta este!!!!!!
+
+-Tiempo inicio/fin en Comanda no Mesa.
+	*LISTO
+
+-STOCK NO VA
+	*LISTO
+
+-Mesa se ocupa en la primera comanda y en la emision del ticket se libera la mesa.
+	*Se resuelve en la logica de negocio
+
+-mesa se inicia con la primer comanda y se libera con el ticket
+	* Se resuelve en la logica de negocio,mismo item q arriba.
+
+-tiempo comanda esta dado desde que se crea la comanda hasta que se lleva a la mesa
+	*LISTO
+
+-el estado de la mesa va en la MesaFinal
+-Patron de estado no se relaciona a Mesa sino a MesaFinal
+	* Listo ambos.
+
+-ticket tiene como atributo el empleado sin la relacion para que no sea una flecha larga
+	* No me jode la flecha larga, se podria poner un id del empleado tambien sin relacionar.
+
+-ticket se une a comandas.
+	*LISTO
+
+ticket tiene que tener persistencia:
+  +tiene que tener un detalle  por si en 2 comandas se pide 2 veces el mismo producto
+  +como una factura/similar a la comanda
+	* FALTA 
+
+
+-corregir der
+VistaPreTicket
+-desplegable de mesas ocupadas
+	*Se resuelve en la vista.
+
+-graficco de ventas seleccionando 2 fechas y traigo el grafico dentro de esas fechas.
+
+//Consejo u opinion: un grafico de barras con una planilla que muestre mes a mes
+
+-para terminar la mesa,poner las unidas en una sola.
+ ej si estan unidas mesas 1y3 , si queiro terminar la mesa no me tiene que dar la opcion 
+ de la mesa 1 o 3 sino que ambas sean un solo elemento
+	*Se resuelve en la vista.
+ 

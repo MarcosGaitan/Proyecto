@@ -20,8 +20,10 @@
     <welcome-file>liberarMesa.jsp</welcome-file>
     <welcome-file>vistaReporteEstadoSalon.jsp</welcome-file>
     <welcome-file>vistaHistoricoVentas.jsp</welcome-file>
+    <welcome-file>vistacontrolCamarero.jsp</welcome-file>
+    <welcome-file>vistaEliminarComandas.jsp</welcome-file>
+    <welcome-file>vistaAgregarComanda.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <servlet-name>IniciarSesion</servlet-name>
     <servlet-class> controladores.IniciarSesion </servlet-class>
@@ -94,7 +96,7 @@
     <servlet-name>vistaReporteEstadoSalon</servlet-name>
     <url-pattern>/vistaReporteEstadoSalon</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>vistaHistoricoVentas</servlet-name>
     <servlet-class> controladores.ControladorReporteVentas</servlet-class>
   </servlet>
@@ -102,12 +104,20 @@
     <servlet-name>vistaHistoricoVentas</servlet-name>
     <url-pattern>/vistaHistoricoVentas</url-pattern>
   </servlet-mapping>
-       <servlet>
-  <servlet-name>vistaAgregarComanda</servlet-name>
+  <servlet>
+    <servlet-name>vistaAgregarComanda</servlet-name>
     <servlet-class> controladores.ControladorAgregarComanda</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>vistaAgregarComanda</servlet-name>
-    <url-pattern>/vistaComandaAgregada</url-pattern>
+    <url-pattern>/vistaAgregarComanda</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>vistaEliminarComandas</servlet-name>
+    <servlet-class> controladores.ControladorEliminarComanda</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>vistaEliminarComandas</servlet-name>
+    <url-pattern>/vistaEliminarComandas</url-pattern>
   </servlet-mapping>
 </web-app>
